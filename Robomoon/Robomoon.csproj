@@ -46,11 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="RobomoonChoose.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="RobomoonChoose.Designer.cs">
+      <DependentUpon>RobomoonChoose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Robomoons\Robomoons.cs" />
+    <Compile Include="StartMeny.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartMeny.Designer.cs">
+      <DependentUpon>StartMeny.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,6 +70,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RobomoonChoose.resx">
+      <DependentUpon>RobomoonChoose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartMeny.resx">
+      <DependentUpon>StartMeny.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -76,5 +89,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
