@@ -14,6 +14,9 @@ namespace Robomoon
     {
         List<Characters> PlayableCharacters = new List<Characters>();
         List<Characters> RobomoonCharacters = new List<Characters>();
+        new Random RandomCharacter = new Random();
+        int PlayableCharacterButtonRandom = 0;
+        int EnemeyCharacterButtonRandom = 0;
 
         public RobomoonChoose()
         {
@@ -37,15 +40,19 @@ namespace Robomoon
             // Robomoon Character Creation
             //
             //xvetenskapx, Robomoon
-            RobomoonCharacters.Add(new Characters("xvetenskapx", "Robomoon", 15, 15, 15, Image.FromFile()))
+            RobomoonCharacters.Add(new Characters("xvetenskapx", "Robomoon", 15, 15, 15, Image.FromFile("Picture\\Robomoon\\André_H.bmp")));
+            lbxEnemyChoose.Items.Add(RobomoonCharacters.ElementAt(0).Name);
 
+            //Nightking2002, Robomoon
+            RobomoonCharacters.Add(new Characters("Nightking2002", "Robomoon", 15, 15, 15, Image.FromFile("Picture\\Robomoon\\Jesper_No.bmp")));
+            lbxEnemyChoose.Items.Add(RobomoonCharacters.ElementAt(1).Name);
+
+            //Piggy, Pig
+            RobomoonCharacters.Add(new Characters("Piggy", "Pig", 15, 15, 15, Image.FromFile("Picture\\Robomoon\\Piggy.bmp")));
+            lbxEnemyChoose.Items.Add(RobomoonCharacters.ElementAt(2).Name);
 
             lbxCharacterChoose.SelectedIndex = 0;
-        }
-
-        private void btnVisaStatistik_Click(object sender, EventArgs e)
-        {
-
+            lbxEnemyChoose.SelectedIndex = 1;
         }
 
         private void RobomoonChoose_FormClosing(object sender, FormClosingEventArgs e)
@@ -58,6 +65,58 @@ namespace Robomoon
             int index = lbxCharacterChoose.SelectedIndex;
             tbxCharacterTraits.Text = PlayableCharacters.ElementAt(index).ToString();
             pbxCharacterAppearance.Image = PlayableCharacters.ElementAt(index).Apearence;
+        }
+
+        private void lbxEnemyChoose_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = lbxEnemyChoose.SelectedIndex;
+            tbxEnemyTraits.Text = RobomoonCharacters.ElementAt(index).ToString();
+            pbxEnemyAppearance.Image = RobomoonCharacters.ElementAt(index).Apearence;
+        }
+
+        private void btnRandomCharacter_Click(object sender, EventArgs e)
+        {
+            if (PlayableCharacterButtonRandom == 0)
+            {
+                RandomCharacter.Next(0, PlayableCharacters.Count + 1);
+
+
+                btnRandomCharacter.BackColor = Color.Green;
+                PlayableCharacterButtonRandom++;
+            }
+            else
+            {
+                btnRandomCharacter.BackColor = Color.Red;
+                PlayableCharacterButtonRandom--;
+            }
+        }
+
+        private void btnRandomEnemy_Click(object sender, EventArgs e)
+        {
+            if (EnemeyCharacterButtonRandom == 0)
+            {
+                RandomCharacter.Next(0, RobomoonCharacters.Count + 1);
+
+
+                btnRandomEnemy.BackColor = Color.Green;
+                EnemeyCharacterButtonRandom++;
+            }
+            else
+            {
+                btnRandomEnemy.BackColor = Color.Red;
+                EnemeyCharacterButtonRandom--;
+            }
+        }
+
+        private void btnFight_Click(object sender, EventArgs e)
+        {
+            //
+            FightArena fightArena = new FightArena();
+
+            //Show open the fight form
+            fightArena.Show();
+
+            this.Hide();
         }
     }
 }
