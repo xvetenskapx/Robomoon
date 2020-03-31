@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+
 
 namespace Robomoon
 {
-    class Robomoons
+    class Characters
     {
         //Robomoons Characters
         public string Name;
@@ -14,8 +19,10 @@ namespace Robomoon
         public int Health;
         public int AttackDamage;
         public int Defence;
+        public Image Apearence;
+       
 
-        public Robomoons(string name, string race, int health, int attackdamage, int defence)
+        public Characters(string name, string race, int health, int attackdamage, int defence, Image apearence)
         {
             this.Name = name;
             this.Race = race;
@@ -32,9 +39,9 @@ namespace Robomoon
             this.Health += health;
             this.AttackDamage += attackdamage;
             this.Defence += defence;
+            this.Apearence = apearence;
 
         }
-        //Konstruktor - kod som körs när vi ksapar ett objekt
 
         public override string ToString()
         {

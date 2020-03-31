@@ -12,37 +12,35 @@ namespace Robomoon
 {
     public partial class RobomoonChoose : Form
     {
-        List<Robomoons> RobomoonsCharacters = new List<Robomoons>();
+        List<Characters> PlayableCharacters = new List<Characters>();
+        List<Characters> RobomoonCharacters = new List<Characters>();
 
         public RobomoonChoose()
         {
             InitializeComponent();
-            //Robomoons r = new Robomoons();            
-            //r.health = 100;
-            //r.name = "Stefan";
+            //
+            // Playable Character Creation
+            //
+            //André, Human
+            PlayableCharacters.Add(new Characters("André", "Human", 15, 5, 10, Image.FromFile("Picture\\Characters\\Andre.bmp")));
+            lbxCharacterChoose.Items.Add(PlayableCharacters.ElementAt(0).Name);
 
-            //Robomoons r1 = new Robomoons();
-            //r1.health = 9001;
+            //Jesper, Human
+            PlayableCharacters.Add(new Characters("Jesper", "Human", 25, 15, 5, Image.FromFile("Picture\\Characters\\Jesper.bmp")));
+            lbxCharacterChoose.Items.Add(PlayableCharacters.ElementAt(1).Name);
 
-            //MessageBox.Show(r.ToString());
-            //MessageBox.Show(r1.ToString());
-
-
-
-            //Robomoons[] minRoboms = new Robomoons[100];
-
-            //List<Robomoons> minRobmonsLista = new List<Robomoons>();
-
-            //minRobmonsLista.Add(r);
-
-            //minRobmonsLista.Add(new Robomoons());
-            //MessageBox.Show(minRobmonsLista.ElementAt(0).ToString());
+            //Wilma, Dog
+            PlayableCharacters.Add(new Characters("Wilma", "Dog", 10, 10, 10, Image.FromFile("Picture\\Characters\\Wilma.bmp")));
+            lbxCharacterChoose.Items.Add(PlayableCharacters.ElementAt(2).Name);
 
             //
-            // Character creation
+            // Robomoon Character Creation
             //
-            //Stefan, Human
-            RobomoonsCharacters.Add(new Robomoons("Stefan", "Human", 15, 5, 10));
+            //xvetenskapx, Robomoon
+            RobomoonCharacters.Add(new Characters("xvetenskapx", "Robomoon", 15, 15, 15, Image.FromFile()))
+
+
+            lbxCharacterChoose.SelectedIndex = 0;
         }
 
         private void btnVisaStatistik_Click(object sender, EventArgs e)
@@ -53,6 +51,13 @@ namespace Robomoon
         private void RobomoonChoose_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void lbxCharacterChoose_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = lbxCharacterChoose.SelectedIndex;
+            tbxCharacterTraits.Text = PlayableCharacters.ElementAt(index).ToString();
+            pbxCharacterAppearance.Image = PlayableCharacters.ElementAt(index).Apearence;
         }
     }
 }
