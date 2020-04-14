@@ -12,6 +12,9 @@ namespace Robomoon
 {
     public partial class RobomoonChoose : Form
     {
+        //
+        // Character
+        //
         List<Characters> PlayableCharacters = new List<Characters>();
         List<Characters> RobomoonCharacters = new List<Characters>();
         new Random RandomCharacter = new Random();
@@ -110,12 +113,12 @@ namespace Robomoon
 
         private void btnFight_Click(object sender, EventArgs e)
         {
-            //
-            FightArena fightArena = new FightArena();
 
             //Show open the fight form
+            FightArena fightArena = new FightArena();
             fightArena.Show();
 
+            // Hide This From
             this.Hide();
         }
     }

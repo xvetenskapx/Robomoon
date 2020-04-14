@@ -102,5 +102,8 @@
   <ItemGroup>
     <None Include="bin\Debug\Picture\Other\VS.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Picture\Robomoon\Jesper_No.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

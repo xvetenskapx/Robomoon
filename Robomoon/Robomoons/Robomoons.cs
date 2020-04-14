@@ -51,6 +51,26 @@ namespace Robomoon
                    "AttackDamage: " + this.AttackDamage + "\r\n" +
                    "Defence: " + this.Defence;
         }
+    }
 
+    class SelectedItems
+    {
+        //
+        public int SelectedCharacter;
+        public int SelectedEnemy;
+        public int Friend0Foe1;
+
+        public SelectedItems(int selecteditem, int friend0foe1)
+        {
+            if (friend0foe1 == 0)
+            {
+                this.SelectedCharacter = selecteditem;
+            }
+            else if (friend0foe1 == 1)
+            {
+                this.SelectedEnemy = selecteditem;
+            }
+            
+        }
     }
 }
