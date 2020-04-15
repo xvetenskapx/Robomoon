@@ -15,11 +15,11 @@ namespace Robomoon
         //
         // Character
         //
-        List<Characters> PlayableCharacters = new List<Characters>();
-        List<Characters> RobomoonCharacters = new List<Characters>();
         new Random RandomCharacter = new Random();
         int PlayableCharacterButtonRandom = 0;
         int EnemeyCharacterButtonRandom = 0;
+        int PlayableIndex;
+        int EnemeyIndex;
 
         public RobomoonChoose()
         {
@@ -28,31 +28,31 @@ namespace Robomoon
             // Playable Character Creation
             //
             //André, Human
-            PlayableCharacters.Add(new Characters("André", "Human", 15, 5, 10, Image.FromFile("Picture\\Characters\\Andre.bmp")));
-            lbxCharacterChoose.Items.Add(PlayableCharacters.ElementAt(0).Name);
+            Characters.PlayableCharacters.Add(new Characters("André", "Human", 15, 5, 10, Image.FromFile("Picture\\Characters\\Andre.bmp")));
+            lbxCharacterChoose.Items.Add(Characters.PlayableCharacters.ElementAt(0).Name);
 
             //Jesper, Human
-            PlayableCharacters.Add(new Characters("Jesper", "Human", 25, 15, 5, Image.FromFile("Picture\\Characters\\Jesper.bmp")));
-            lbxCharacterChoose.Items.Add(PlayableCharacters.ElementAt(1).Name);
+            Characters.PlayableCharacters.Add(new Characters("Jesper", "Human", 25, 15, 5, Image.FromFile("Picture\\Characters\\Jesper.bmp")));
+            lbxCharacterChoose.Items.Add(Characters.PlayableCharacters.ElementAt(1).Name);
 
             //Wilma, Dog
-            PlayableCharacters.Add(new Characters("Wilma", "Dog", 10, 10, 10, Image.FromFile("Picture\\Characters\\Wilma.bmp")));
-            lbxCharacterChoose.Items.Add(PlayableCharacters.ElementAt(2).Name);
+            Characters.PlayableCharacters.Add(new Characters("Wilma", "Dog", 10, 10, 10, Image.FromFile("Picture\\Characters\\Wilma.bmp")));
+            lbxCharacterChoose.Items.Add(Characters.PlayableCharacters.ElementAt(2).Name);
 
             //
             // Robomoon Character Creation
             //
             //xvetenskapx, Robomoon
-            RobomoonCharacters.Add(new Characters("xvetenskapx", "Robomoon", 15, 15, 15, Image.FromFile("Picture\\Robomoon\\André_H.bmp")));
-            lbxEnemyChoose.Items.Add(RobomoonCharacters.ElementAt(0).Name);
+            Characters.RobomoonCharacters.Add(new Characters("xvetenskapx", "Robomoon", 15, 15, 15, Image.FromFile("Picture\\Robomoon\\André_H.bmp")));
+            lbxEnemyChoose.Items.Add(Characters.RobomoonCharacters.ElementAt(0).Name);
 
             //Nightking2002, Robomoon
-            RobomoonCharacters.Add(new Characters("Nightking2002", "Robomoon", 15, 15, 15, Image.FromFile("Picture\\Robomoon\\Jesper_No.bmp")));
-            lbxEnemyChoose.Items.Add(RobomoonCharacters.ElementAt(1).Name);
+            Characters.RobomoonCharacters.Add(new Characters("Nightking2002", "Robomoon", 15, 15, 15, Image.FromFile("Picture\\Robomoon\\Jesper_No.bmp")));
+            lbxEnemyChoose.Items.Add(Characters.RobomoonCharacters.ElementAt(1).Name);
 
             //Piggy, Pig
-            RobomoonCharacters.Add(new Characters("Piggy", "Pig", 15, 15, 15, Image.FromFile("Picture\\Robomoon\\Piggy.bmp")));
-            lbxEnemyChoose.Items.Add(RobomoonCharacters.ElementAt(2).Name);
+            Characters.RobomoonCharacters.Add(new Characters("Piggy", "Pig", 15, 15, 15, Image.FromFile("Picture\\Robomoon\\Piggy.bmp")));
+            lbxEnemyChoose.Items.Add(Characters.RobomoonCharacters.ElementAt(2).Name);
 
             lbxCharacterChoose.SelectedIndex = 0;
             lbxEnemyChoose.SelectedIndex = 1;
@@ -65,30 +65,41 @@ namespace Robomoon
 
         private void lbxCharacterChoose_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = lbxCharacterChoose.SelectedIndex;
-            tbxCharacterTraits.Text = PlayableCharacters.ElementAt(index).ToString();
-            pbxCharacterAppearance.Image = PlayableCharacters.ElementAt(index).Apearence;
+            PlayableIndex = lbxCharacterChoose.SelectedIndex;
+            tbxCharacterTraits.Text = Characters.PlayableCharacters.ElementAt(PlayableIndex).ToString();
+            pbxCharacterAppearance.Image = Characters.PlayableCharacters.ElementAt(PlayableIndex).Apearence;
+
+            Characters.PlayableIndex = PlayableIndex;
         }
 
         private void lbxEnemyChoose_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = lbxEnemyChoose.SelectedIndex;
-            tbxEnemyTraits.Text = RobomoonCharacters.ElementAt(index).ToString();
-            pbxEnemyAppearance.Image = RobomoonCharacters.ElementAt(index).Apearence;
+            EnemeyIndex = lbxEnemyChoose.SelectedIndex;
+            tbxEnemyTraits.Text = Characters.RobomoonCharacters.ElementAt(EnemeyIndex).ToString();
+            pbxEnemyAppearance.Image = Characters.RobomoonCharacters.ElementAt(EnemeyIndex).Apearence;
+
+            Characters.RobomoonIndex = EnemeyIndex;
         }
 
         private void btnRandomCharacter_Click(object sender, EventArgs e)
         {
             if (PlayableCharacterButtonRandom == 0)
             {
-                RandomCharacter.Next(0, PlayableCharacters.Count + 1);
-
-
+                Characters.PlayableIndex = RandomCharacter.Next(0, Characters.PlayableCharacters.Count);
+                
+                //
+                // Button Propetis
+                //
                 btnRandomCharacter.BackColor = Color.Green;
                 PlayableCharacterButtonRandom++;
             }
             else
             {
+                Characters.PlayableIndex = PlayableIndex;
+
+                //
+                // Button Propetis
+                //
                 btnRandomCharacter.BackColor = Color.Red;
                 PlayableCharacterButtonRandom--;
             }
@@ -98,14 +109,20 @@ namespace Robomoon
         {
             if (EnemeyCharacterButtonRandom == 0)
             {
-                RandomCharacter.Next(0, RobomoonCharacters.Count + 1);
+                Characters.RobomoonIndex = RandomCharacter.Next(0, Characters.RobomoonCharacters.Count);
 
-
+                //
+                // Button Propetis
+                //
                 btnRandomEnemy.BackColor = Color.Green;
                 EnemeyCharacterButtonRandom++;
             }
             else
             {
+                Characters.RobomoonIndex = EnemeyIndex;
+                //
+                // Button Propetis
+                //
                 btnRandomEnemy.BackColor = Color.Red;
                 EnemeyCharacterButtonRandom--;
             }

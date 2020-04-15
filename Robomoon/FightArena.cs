@@ -16,6 +16,7 @@ namespace Robomoon
         {
             InitializeComponent();
             RobomoonChoose.ActiveForm.Dispose();
+            int StartHealth = Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex).AttackDamage;
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -26,6 +27,8 @@ namespace Robomoon
             Graphics g = e.Graphics;
             SolidBrush LightBrush = new SolidBrush(Color.FromArgb(170, 175, 144));
             SolidBrush DarkBrush = new SolidBrush(Color.FromArgb(200, 200, 176));
+            SolidBrush LoadingGreen = new SolidBrush(Color.Green);
+            Pen Test = new Pen(Color.BlueViolet, 10f);
             //
             // Yttre Fiende Ovalen
             //  
@@ -56,8 +59,10 @@ namespace Robomoon
             gbxDecideAction.Hide();
 
             gbxFight.Visible = true;
-            gbxFight.Location = new Point(25, 38);
-            
+            gbxFight.Location = new Point(95, 60);
+
+            lblText.Font = new Font("Microsoft Sans Serif", 50);
+            lblText.Text = "What Combat Technique Were You Thinking Of Using?";
         }
 
 
@@ -71,11 +76,75 @@ namespace Robomoon
         {
             gbxFight.Visible = false;
             gbxDecideAction.Visible = true;
+
+            lblText.Font = new Font("Microsoft Sans Serif", 50);
+            lblText.Text = "What Are You Going To Do?";
         }
 
         private void FightArena_Load(object sender, EventArgs e)
         {
+            pbxCharacter.Image = Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Apearence;
+            pbxRobomoon.Image = Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex).Apearence;
 
+            //
+            // Character
+            //
+            lblCharacterName.Text = Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Name;
+            pbrCharacterHP.Value = 100;
+            lblCharacterHP.Text = Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Health.ToString() + "/" + Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Health.ToString();
+            //
+            // Robomoon
+            //
+            lblRobomoonNamn.Text = Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex).Name;
+            pbrRobomoonHP.Value = 100;
+            //
+            // Text
+            //
+            lblText.Font = new Font("Microsoft Sans Serif", 50);
+            lblText.Text = "What Are You Going To Do?";
+        }
+
+        private void btnBackpack_Click(object sender, EventArgs e)
+        {
+            gbxDecideAction.Hide();
+
+            gbxBackpack.Visible = true;
+            gbxBackpack.Location = new Point(95, 60);
+
+            lblText.Font = new Font("Microsoft Sans Serif", 40);
+            lblText.Text = "This Is What You Have In Your Backpack";
+        }
+
+        private void btnGoBackBackpack_Click(object sender, EventArgs e)
+        {
+            gbxBackpack.Visible = false;
+            gbxDecideAction.Visible = true;
+
+            lblText.Font = new Font("Microsoft Sans Serif", 50);
+            lblText.Text = "What Are You Going To Do?";
+        }
+
+        private void btnCharacter_Click(object sender, EventArgs e)
+        {
+            gbxDecideAction.Hide();
+
+            gbxSpec.Visible = true;
+            gbxSpec.Location = new Point(95, 60);
+
+            lblCharacterSpec.Text = Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).ToString();
+            lblRobomoonSpec.Text = Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex).ToString();
+
+            lblText.Font = new Font("Microsoft Sans Serif", 50);
+            lblText.Text = "Here Is Your And His Specs";
+        }
+
+        private void btnGoBackSpecs_Click(object sender, EventArgs e)
+        {
+            gbxSpec.Visible = false;
+            gbxDecideAction.Visible = true;
+
+            lblText.Font = new Font("Microsoft Sans Serif", 50);
+            lblText.Text = "What Are You Going To Do?";
         }
     }
 }
