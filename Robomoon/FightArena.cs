@@ -102,6 +102,11 @@ namespace Robomoon
             //
             lblText.Font = new Font("Microsoft Sans Serif", 50);
             lblText.Text = "What Are You Going To Do?";
+            //
+            // Testing
+            //
+            label1.Text = Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex).Health.ToString();
+            label2.Text = Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Health.ToString();
         }
 
         private void btnBackpack_Click(object sender, EventArgs e)
@@ -145,6 +150,79 @@ namespace Robomoon
 
             lblText.Font = new Font("Microsoft Sans Serif", 50);
             lblText.Text = "What Are You Going To Do?";
+        }
+
+        private void btnAttack1_Click(object sender, EventArgs e)
+        {
+            //
+            // I Fight
+            //
+            Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex).Health += -5;
+            label1.Text = Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex).Health.ToString();
+            HealthCheck(Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex));
+            //
+            // Robomoon Fight
+            //
+            RobomoonFight();
+            ////Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Health += -5;
+            ////label2.Text = Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Health.ToString();
+            ////HealthCheck(Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex));
+            //
+            // Go Back
+            //
+            gbxFight.Visible = false;
+            gbxDecideAction.Visible = true;
+
+            lblText.Font = new Font("Microsoft Sans Serif", 50);
+            lblText.Text = "What Are You Going To Do?";
+
+        }
+
+        private void btnAttack2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Programmera Knappen", "Inte Programmerad", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void btnAttack3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Programmera Knappen", "Inte Programmerad", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void btnAttack4_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Programmera Knappen", "Inte Programmerad", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void btnAttack5_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Programmera Knappen", "Inte Programmerad", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        void HealthCheck (Characters characters)
+        {
+            if (characters == Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex))
+            {
+                if (Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex).Health <= 0)
+                {
+                    label1.Text = "Done";
+                }
+            }
+
+            else if (characters == Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex))
+            {
+                if (Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Health <= 0)
+                {
+                    label2.Text = "Done";
+                }
+            }
+
+        }
+
+        void RobomoonFight()
+        {
+            Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Health += -5;
+            label2.Text = Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Health.ToString();
+            HealthCheck(Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex));
         }
     }
 }
