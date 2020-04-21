@@ -22,6 +22,7 @@ namespace Robomoon
         public int AttackDamage;
         public int Defence;
         public Image Apearence;
+        public Image DeathApearence;
         //
         // Character List
         //
@@ -33,7 +34,7 @@ namespace Robomoon
         public static int PlayableIndex;
         public static int RobomoonIndex;
         
-        public Characters(string name, string race, int health, int attackdamage, int defence, Image apearence)
+        public Characters(string name, string race, int health, int attackdamage, int defence, Image apearence, Image deathapearence)
         {
             this.Name = name;
             this.Race = race;
@@ -51,6 +52,7 @@ namespace Robomoon
             this.AttackDamage += attackdamage;
             this.Defence += defence;
             this.Apearence = apearence;
+            this.DeathApearence = deathapearence;
 
         }
 
@@ -69,7 +71,7 @@ namespace Robomoon
         //
         public int SelectedCharacter;
         public int SelectedEnemy;
-        public int Friend0Foe1;
+        //public int Friend0Foe1;
 
         public SelectedItems(int selecteditem, int friend0foe1)
         {

@@ -58,8 +58,6 @@
             this.lblCharacterHP = new System.Windows.Forms.Label();
             this.lblCharacterName = new System.Windows.Forms.Label();
             this.pbrCharacterHP = new System.Windows.Forms.ProgressBar();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.gbxDecideAction.SuspendLayout();
             this.gbxFight.SuspendLayout();
             this.gbxActions.SuspendLayout();
@@ -322,6 +320,7 @@
             this.pbrRobomoonHP.Location = new System.Drawing.Point(6, 39);
             this.pbrRobomoonHP.Name = "pbrRobomoonHP";
             this.pbrRobomoonHP.Size = new System.Drawing.Size(500, 20);
+            this.pbrRobomoonHP.Step = 1;
             this.pbrRobomoonHP.TabIndex = 9;
             // 
             // gbxRobomoonSpec
@@ -382,34 +381,12 @@
             this.pbrCharacterHP.Size = new System.Drawing.Size(500, 20);
             this.pbrCharacterHP.TabIndex = 9;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1193, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 25);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "label1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(478, 204);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 25);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "label2";
-            // 
             // FightArena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.gbxCharacterSpec);
             this.Controls.Add(this.gbxRobomoonSpec);
             this.Controls.Add(this.pbxRobomoon);
@@ -434,7 +411,6 @@
             this.gbxCharacterSpec.ResumeLayout(false);
             this.gbxCharacterSpec.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -470,7 +446,5 @@
         private System.Windows.Forms.Label lblCharacterSpec;
         private System.Windows.Forms.Button btnGoBackSpecs;
         private System.Windows.Forms.Label lblText;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
     }
 }
