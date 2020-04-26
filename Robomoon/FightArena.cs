@@ -12,20 +12,24 @@ namespace Robomoon
 {
     public partial class FightArena : Form
     {
-        //int StartHealth = Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Health;
-        
-        // Ändra Det måste var det absoluta start livet. Extra int i Classen bara
+        Characters Player = Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex);
+        Characters Enemey = Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex);
+
         int PlayerStartHealth = -1;
         int EnemyStartHealth = -1;
+
 
         public FightArena()
         {
             InitializeComponent();
             RobomoonChoose.ActiveForm.Dispose();
-            PlayerStartHealth = Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Health;
-            EnemyStartHealth = Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex).Health;
+
+            PlayerStartHealth = Player.StartHealth;
+            EnemyStartHealth = Enemey.StartHealth;
+
+
         }
-    
+
         protected override void OnPaint(PaintEventArgs e)
         {
             //
@@ -61,6 +65,39 @@ namespace Robomoon
         }
 
 
+        private void FightArena_Load(object sender, EventArgs e)
+        {
+            pbxCharacter.Image = Player.Apearence;
+            pbxRobomoon.Image = Enemey.Apearence;
+
+            //
+            // Character
+            //
+            lblCharacterName.Text = Player.Name;
+            pbrCharacterHP.Value = Healthbar(Player);
+            lblCharacterHP.Text = Player.Health.ToString() + "/" + PlayerStartHealth;
+            //
+            // Robomoon
+            //
+            lblRobomoonNamn.Text = Enemey.Name;
+            pbrRobomoonHP.Value = Healthbar(Enemey);
+            //
+            // Text
+            //
+            lblText.Font = new Font("Microsoft Sans Serif", 50);
+            lblText.Text = "What Are You Going To Do?";
+            //
+            // FightButtons Name
+            //
+            btnAttack1.Text = "Standard";
+            btnAttack2.Text = "Slap from doom";
+            btnAttack5.Text = "ARK";
+        }
+
+
+        //
+        // Group Box Decide Action
+        //
         private void btnFight_Click(object sender, EventArgs e)
         {
             gbxDecideAction.Hide();
@@ -71,14 +108,6 @@ namespace Robomoon
             lblText.Font = new Font("Microsoft Sans Serif", 50);
             lblText.Text = "What Combat Technique Were You Thinking Of Using?";
         }
-
-
-        private void btnRun_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("You can't run, keep fighting until you die", "NO, YOU CAN'T RUN", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        }
-
-
         private void btnGoBack_Click(object sender, EventArgs e)
         {
             gbxFight.Visible = false;
@@ -88,32 +117,12 @@ namespace Robomoon
             lblText.Text = "What Are You Going To Do?";
         }
 
-    
-        private void FightArena_Load(object sender, EventArgs e)
-        {
-            pbxCharacter.Image = Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Apearence;
-            pbxRobomoon.Image = Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex).Apearence;
 
-            //
-            // Character
-            //
-            lblCharacterName.Text = Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Name;
-            pbrCharacterHP.Value = 100;
-            lblCharacterHP.Text = Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Health.ToString() + "/" + PlayerStartHealth;
-            //
-            // Robomoon
-            //
-            lblRobomoonNamn.Text = Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex).Name;
-            pbrRobomoonHP.Value = 100;
-            //
-            // Text
-            //
-            lblText.Font = new Font("Microsoft Sans Serif", 50);
-            lblText.Text = "What Are You Going To Do?";
-            //
-            // Testing
-            //
+        private void btnRun_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("You can't run, keep fighting until you die", "NO, YOU CAN'T RUN", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
+
 
         private void btnBackpack_Click(object sender, EventArgs e)
         {
@@ -125,7 +134,6 @@ namespace Robomoon
             lblText.Font = new Font("Microsoft Sans Serif", 40);
             lblText.Text = "This Is What You Have In Your Backpack";
         }
-
         private void btnGoBackBackpack_Click(object sender, EventArgs e)
         {
             gbxBackpack.Visible = false;
@@ -135,6 +143,7 @@ namespace Robomoon
             lblText.Text = "What Are You Going To Do?";
         }
 
+
         private void btnCharacter_Click(object sender, EventArgs e)
         {
             gbxDecideAction.Hide();
@@ -142,13 +151,12 @@ namespace Robomoon
             gbxSpec.Visible = true;
             gbxSpec.Location = new Point(95, 60);
 
-            lblCharacterSpec.Text = Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).ToString();
-            lblRobomoonSpec.Text = Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex).ToString();
+            lblCharacterSpec.Text = Player.ToString();
+            lblRobomoonSpec.Text = Enemey.ToString();
 
             lblText.Font = new Font("Microsoft Sans Serif", 50);
             lblText.Text = "Here Is Your And His Specs";
         }
-
         private void btnGoBackSpecs_Click(object sender, EventArgs e)
         {
             gbxSpec.Visible = false;
@@ -157,23 +165,31 @@ namespace Robomoon
             lblText.Font = new Font("Microsoft Sans Serif", 50);
             lblText.Text = "What Are You Going To Do?";
         }
+        //
+        // End
+        //
 
+
+        //
+        // Attack Buttons
+        //
         private void btnAttack1_Click(object sender, EventArgs e)
         {
             //
-            // I Fight
+            // Player Fight
             //
             // Attack
-            Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex).Health += -5;
+            Enemey.Health -= StandardFightThe(Enemey);
             //Health Update
-            HealthCheck(Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex));
-            pbrRobomoonHP.Value = Healthbar(Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex));
+            HealthCheck(Enemey);
+            pbrRobomoonHP.Value = Healthbar(Enemey);
             //
             // Robomoon Fight
             //
-            RobomoonFight();
-            HealthCheck(Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex));
-            pbrCharacterHP.Value = Healthbar(Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex));
+            Player.Health -= EnemyFightChocie();
+            //Health Update
+            HealthCheck(Player);
+            pbrCharacterHP.Value = Healthbar(Player);
             //
             // Go Back
             //
@@ -185,88 +201,262 @@ namespace Robomoon
 
         }
 
+
         private void btnAttack2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Programmera Knappen", "Inte Programmerad", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //
+            // Player Fight
+            //
+            // Attack
+            Enemey.Health -= DoomFightThe(Enemey);
+            //Health Update
+            HealthCheck(Enemey);
+            pbrRobomoonHP.Value = Healthbar(Enemey);
+            //
+            // Robomoon Fight
+            //
+            Player.Health -= EnemyFightChocie();
+            //Health Update
+            HealthCheck(Player);
+            pbrCharacterHP.Value = Healthbar(Player);
+            //
+            // Go Back
+            //
+            gbxFight.Visible = false;
+            gbxDecideAction.Visible = true;
+
+            lblText.Font = new Font("Microsoft Sans Serif", 50);
+            lblText.Text = "What Are You Going To Do?";
         }
+
 
         private void btnAttack3_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Programmera Knappen", "Inte Programmerad", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
+
         private void btnAttack4_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Programmera Knappen", "Inte Programmerad", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
+
         private void btnAttack5_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Programmera Knappen", "Inte Programmerad", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        }
+            //
+            // Player Fight
+            //
+            // Attack
+            Enemey.Health -= ARKFightThe(Enemey);
+            //Health Update
+            HealthCheck(Enemey);
+            pbrRobomoonHP.Value = Healthbar(Enemey);
+            //
+            // Robomoon Fight
+            //
+            Player.Health -= EnemyFightChocie();
+            //Health Update
+            HealthCheck(Player);
+            pbrCharacterHP.Value = Healthbar(Player);
+            //
+            // Go Back
+            //
+            gbxFight.Visible = false;
+            gbxDecideAction.Visible = true;
 
-        void HealthCheck (Characters characters)
+            lblText.Font = new Font("Microsoft Sans Serif", 50);
+            lblText.Text = "What Are You Going To Do?";
+        }
+        //
+        // End
+        //
+
+
+        //
+        // Methods
+        //metoder
+        void HealthCheck(Characters characters)
         {
             //
             // Robomoon Health Update
             //
-            if (characters == Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex))
+            if (characters == Enemey)
             {
-                if (Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex).Health <= 0)
+                if (Enemey.Health <= 0)
                 {
-                    Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex).Apearence = Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex).DeathApearence;
-                    pbxRobomoon.Image = Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex).Apearence;
+                    Enemey.Health = 0;
+                    Enemey.Apearence = Enemey.DeathApearence;
+                    pbxRobomoon.Image = Enemey.Apearence;
+
                     RobomoonChoose choose = new RobomoonChoose();
                     choose.Show();
                     this.Hide();
-                    //////int NumberDefeted = 0;
-                    //////for (int i = 0; i < Characters.RobomoonCharacters.Count; i++)
-                    //////{
-                    //////    if (Characters.RobomoonCharacters.ElementAt(i).Apearence == Characters.RobomoonCharacters.ElementAt(i).DeathApearence)
-                    //////    {
-                    //////        NumberDefeted++;
-                    //////    }
-                    //////}
-                    //////if (Characters.RobomoonCharacters.Count == NumberDefeted)
-                    //////{
-                    //////    MessageBox.Show("Well everyone is defeted, What a waste of time", "Dead", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    //////}
                 }
             }
 
-            else if (characters == Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex))
+            else if (characters == Player)
             {
-                if (Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Health <= 0)
+                if (Player.Health <= 0)
                 {
-                    Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Apearence = Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).DeathApearence;
-                    pbxCharacter.Image = Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Apearence;
+                    Player.Health = 0;
+                    Player.Apearence = Player.DeathApearence;
+                    pbxCharacter.Image = Player.Apearence;
 
                     RobomoonChoose choose = new RobomoonChoose();
                     choose.Show();
                     this.Hide();
-
-                    //////NumberDefeted = 0;
-                    //////for (int i = 0; i < Characters.PlayableCharacters.Count; i++)
-                    //////{
-                    //////    if (Characters.PlayableCharacters.ElementAt(i).Apearence == Characters.PlayableCharacters.ElementAt(i).DeathApearence)
-                    //////    {
-                    //////        NumberDefeted++;
-                    //////    }
-                    //////}
-                    //////if (Characters.PlayableCharacters.Count == NumberDefeted)
-                    //////{
-                    //////    MessageBox.Show("You are defeted, What a waste of time", "Dead", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    //////}
                 }
             }
 
         }
 
-        void RobomoonFight()
+        int  EnemyFightChocie() 
         {
-            Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Health += -5;
-            lblCharacterHP.Text = Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Health.ToString() + "/" + PlayerStartHealth; 
-            //HealthCheck(Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex));
+            Random EnemyAttack = new Random();
+            int EnemeyAttackChoice = EnemyAttack.Next(101);
+            int EnemeyAttack = -1;
+            for (int i = 1; i < 11; i++)
+            {
+                for (int h = 1 * i; h < 11 * i; h++)
+                {
+                    if (EnemeyAttackChoice == h)
+                    {
+                        EnemeyAttack = i;
+                    }
+                }
+
+                if (EnemeyAttack != i)
+                {
+                    switch (EnemeyAttack)
+                    {
+                        case 1:
+                            return StandardFightThe(Enemey);
+                            break;
+
+                        case 2:
+                            return DoomFightThe(Enemey);
+                            break;
+
+                        case 3:
+                            return -1;
+                            break;
+
+                        case 4:
+                            return -1;
+                            break;
+
+                        case 5:
+                            return ARKFightThe(Enemey);
+                            break;
+
+                        default:
+                            return -1;
+                            break;
+                    }
+                }
+            }
+            return -1;
+        }
+
+        int StandardFightThe(Characters characters)
+        {
+            if (characters == Enemey)
+            {
+                if (Enemey.Defence >= Player.AttackDamage)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return Player.AttackDamage - Enemey.Defence;
+                }
+            }
+
+            else if (characters == Player)
+            {
+                if (Player.Defence >= Enemey.AttackDamage)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return Enemey.AttackDamage - Player.Defence;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong");
+                return -1;
+            }
+        }
+
+        int DoomFightThe(Characters characters)
+        {
+            if (characters == Enemey)
+            {
+                if (Enemey.Defence >= Player.AttackDamage)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return Player.AttackDamage - Enemey.Defence;
+                }
+            }
+
+            else if (characters == Player)
+            {
+                if (Player.Defence >= Enemey.AttackDamage)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return Enemey.AttackDamage - Player.Defence;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong");
+                return -1;
+            }
+        }
+
+        int ARKFightThe(Characters characters)
+        {
+            Random ARK = new Random();
+            int ARKChance = ARK.Next(11);
+
+            if (characters == Player)
+            {
+                if (ARKChance == 1)
+                {
+                    return 15;
+                }
+
+                else
+                {
+                    return 0;
+                }
+            }
+            else if (characters == Enemey)
+            {
+                if (ARKChance == 1)
+                {
+                    return 15;
+                }
+
+                else
+                {
+                    return 0;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong");
+                return -1;
+            }
         }
 
         int Healthbar (Characters characters)
@@ -279,9 +469,9 @@ namespace Robomoon
             //
             // Robomoon Health Percentage
             //
-            if (characters == Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex))
+            if (characters == Enemey)
             {
-                CurrentHealth = double.Parse(Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex).Health.ToString());
+                CurrentHealth = double.Parse(Enemey.Health.ToString());
                 PercentageHealth = ((CurrentHealth / enemystarterhealth) * 100) + 0.5;
 
                 if (PercentageHealth <= 0)
@@ -291,12 +481,13 @@ namespace Robomoon
 
                 return (int)PercentageHealth;
             }
+
             //
             // Character Health Percentage
             //
-            else if (characters == Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex))
+            else if (characters == Player)
             {
-                CurrentHealth = double.Parse(Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex).Health.ToString());
+                CurrentHealth = double.Parse(Player.Health.ToString());
                 PercentageHealth = ((CurrentHealth / playerstarterhealth) * 100) + 0.5;
 
                 if (PercentageHealth <= 0)
@@ -315,5 +506,8 @@ namespace Robomoon
             }
             
         }
+        //
+        // End
+        //
     }
 }

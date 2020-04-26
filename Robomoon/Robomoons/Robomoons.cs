@@ -19,6 +19,7 @@ namespace Robomoon
         public string Name;
         public string Race;
         public int Health;
+        public int StartHealth;
         public int AttackDamage;
         public int Defence;
         public Image Apearence;
@@ -38,17 +39,18 @@ namespace Robomoon
         {
             this.Name = name;
             this.Race = race;
-            switch (Race)
-            {
-                case "Human":
-                    Health += 10;
-                    AttackDamage += 10;
-                    Defence += 10;
-                    break;
-                default:
-                    break;
-            }
+            //switch (Race)
+            //{
+            //    case "Human":
+            //        Health += 10;
+            //        AttackDamage += 10;
+            //        Defence += 10;
+            //        break;
+            //    default:
+            //        break;
+            //}
             this.Health += health;
+            this.StartHealth += health;
             this.AttackDamage += attackdamage;
             this.Defence += defence;
             this.Apearence = apearence;
