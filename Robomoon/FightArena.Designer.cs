@@ -49,8 +49,6 @@
             this.lblCharacterSpec = new System.Windows.Forms.Label();
             this.gbxActionText = new System.Windows.Forms.GroupBox();
             this.lblText = new System.Windows.Forms.Label();
-            this.pbxRobomoon = new System.Windows.Forms.PictureBox();
-            this.pbxCharacter = new System.Windows.Forms.PictureBox();
             this.pbrRobomoonHP = new System.Windows.Forms.ProgressBar();
             this.gbxRobomoonSpec = new System.Windows.Forms.GroupBox();
             this.lblRobomoonNamn = new System.Windows.Forms.Label();
@@ -58,16 +56,18 @@
             this.lblCharacterHP = new System.Windows.Forms.Label();
             this.lblCharacterName = new System.Windows.Forms.Label();
             this.pbrCharacterHP = new System.Windows.Forms.ProgressBar();
+            this.pbxRobomoon = new System.Windows.Forms.PictureBox();
+            this.pbxCharacter = new System.Windows.Forms.PictureBox();
             this.gbxDecideAction.SuspendLayout();
             this.gbxFight.SuspendLayout();
             this.gbxActions.SuspendLayout();
             this.gbxBackpack.SuspendLayout();
             this.gbxSpec.SuspendLayout();
             this.gbxActionText.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxRobomoon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxCharacter)).BeginInit();
             this.gbxRobomoonSpec.SuspendLayout();
             this.gbxCharacterSpec.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxRobomoon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxCharacter)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxDecideAction
@@ -145,9 +145,9 @@
             // 
             // btnAttack5
             // 
-            this.btnAttack5.Location = new System.Drawing.Point(279, 19);
+            this.btnAttack5.Location = new System.Drawing.Point(254, 19);
             this.btnAttack5.Name = "btnAttack5";
-            this.btnAttack5.Size = new System.Drawing.Size(75, 23);
+            this.btnAttack5.Size = new System.Drawing.Size(100, 23);
             this.btnAttack5.TabIndex = 5;
             this.btnAttack5.Text = "Attack 5";
             this.btnAttack5.UseVisualStyleBackColor = true;
@@ -155,9 +155,9 @@
             // 
             // btnGoBack
             // 
-            this.btnGoBack.Location = new System.Drawing.Point(279, 101);
+            this.btnGoBack.Location = new System.Drawing.Point(254, 101);
             this.btnGoBack.Name = "btnGoBack";
-            this.btnGoBack.Size = new System.Drawing.Size(75, 23);
+            this.btnGoBack.Size = new System.Drawing.Size(100, 23);
             this.btnGoBack.TabIndex = 4;
             this.btnGoBack.Text = "Go Back";
             this.btnGoBack.UseVisualStyleBackColor = true;
@@ -165,9 +165,9 @@
             // 
             // btnAttack4
             // 
-            this.btnAttack4.Location = new System.Drawing.Point(144, 101);
+            this.btnAttack4.Location = new System.Drawing.Point(130, 101);
             this.btnAttack4.Name = "btnAttack4";
-            this.btnAttack4.Size = new System.Drawing.Size(75, 23);
+            this.btnAttack4.Size = new System.Drawing.Size(100, 23);
             this.btnAttack4.TabIndex = 3;
             this.btnAttack4.Text = "Attack 4";
             this.btnAttack4.UseVisualStyleBackColor = true;
@@ -175,9 +175,9 @@
             // 
             // btnAttack3
             // 
-            this.btnAttack3.Location = new System.Drawing.Point(144, 19);
+            this.btnAttack3.Location = new System.Drawing.Point(130, 19);
             this.btnAttack3.Name = "btnAttack3";
-            this.btnAttack3.Size = new System.Drawing.Size(75, 23);
+            this.btnAttack3.Size = new System.Drawing.Size(100, 23);
             this.btnAttack3.TabIndex = 2;
             this.btnAttack3.Text = "Attack 2";
             this.btnAttack3.UseVisualStyleBackColor = true;
@@ -187,7 +187,7 @@
             // 
             this.btnAttack2.Location = new System.Drawing.Point(6, 101);
             this.btnAttack2.Name = "btnAttack2";
-            this.btnAttack2.Size = new System.Drawing.Size(75, 23);
+            this.btnAttack2.Size = new System.Drawing.Size(100, 23);
             this.btnAttack2.TabIndex = 1;
             this.btnAttack2.Text = "Attack 2";
             this.btnAttack2.UseVisualStyleBackColor = true;
@@ -197,7 +197,7 @@
             // 
             this.btnAttack1.Location = new System.Drawing.Point(6, 19);
             this.btnAttack1.Name = "btnAttack1";
-            this.btnAttack1.Size = new System.Drawing.Size(75, 23);
+            this.btnAttack1.Size = new System.Drawing.Size(100, 23);
             this.btnAttack1.TabIndex = 0;
             this.btnAttack1.Text = "Attack 1";
             this.btnAttack1.UseVisualStyleBackColor = true;
@@ -297,6 +297,77 @@
             this.lblText.Text = "label1";
             this.lblText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pbrRobomoonHP
+            // 
+            this.pbrRobomoonHP.Location = new System.Drawing.Point(6, 39);
+            this.pbrRobomoonHP.Name = "pbrRobomoonHP";
+            this.pbrRobomoonHP.Size = new System.Drawing.Size(500, 20);
+            this.pbrRobomoonHP.Step = 1;
+            this.pbrRobomoonHP.TabIndex = 9;
+            // 
+            // gbxRobomoonSpec
+            // 
+            this.gbxRobomoonSpec.BackColor = System.Drawing.Color.Transparent;
+            this.gbxRobomoonSpec.Controls.Add(this.lblRobomoonNamn);
+            this.gbxRobomoonSpec.Controls.Add(this.pbrRobomoonHP);
+            this.gbxRobomoonSpec.Location = new System.Drawing.Point(315, 64);
+            this.gbxRobomoonSpec.Name = "gbxRobomoonSpec";
+            this.gbxRobomoonSpec.Size = new System.Drawing.Size(515, 69);
+            this.gbxRobomoonSpec.TabIndex = 10;
+            this.gbxRobomoonSpec.TabStop = false;
+            // 
+            // lblRobomoonNamn
+            // 
+            this.lblRobomoonNamn.AutoSize = true;
+            this.lblRobomoonNamn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRobomoonNamn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblRobomoonNamn.Location = new System.Drawing.Point(6, 16);
+            this.lblRobomoonNamn.Name = "lblRobomoonNamn";
+            this.lblRobomoonNamn.Size = new System.Drawing.Size(134, 20);
+            this.lblRobomoonNamn.TabIndex = 11;
+            this.lblRobomoonNamn.Text = "Robomoon Name";
+            // 
+            // gbxCharacterSpec
+            // 
+            this.gbxCharacterSpec.BackColor = System.Drawing.Color.Transparent;
+            this.gbxCharacterSpec.Controls.Add(this.lblCharacterHP);
+            this.gbxCharacterSpec.Controls.Add(this.lblCharacterName);
+            this.gbxCharacterSpec.Controls.Add(this.pbrCharacterHP);
+            this.gbxCharacterSpec.Location = new System.Drawing.Point(1174, 479);
+            this.gbxCharacterSpec.Name = "gbxCharacterSpec";
+            this.gbxCharacterSpec.Size = new System.Drawing.Size(515, 88);
+            this.gbxCharacterSpec.TabIndex = 11;
+            this.gbxCharacterSpec.TabStop = false;
+            // 
+            // lblCharacterHP
+            // 
+            this.lblCharacterHP.AutoSize = true;
+            this.lblCharacterHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCharacterHP.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblCharacterHP.Location = new System.Drawing.Point(439, 62);
+            this.lblCharacterHP.Name = "lblCharacterHP";
+            this.lblCharacterHP.Size = new System.Drawing.Size(67, 20);
+            this.lblCharacterHP.TabIndex = 12;
+            this.lblCharacterHP.Text = "999/999";
+            // 
+            // lblCharacterName
+            // 
+            this.lblCharacterName.AutoSize = true;
+            this.lblCharacterName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCharacterName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblCharacterName.Location = new System.Drawing.Point(6, 16);
+            this.lblCharacterName.Name = "lblCharacterName";
+            this.lblCharacterName.Size = new System.Drawing.Size(125, 20);
+            this.lblCharacterName.TabIndex = 11;
+            this.lblCharacterName.Text = "Character Name";
+            // 
+            // pbrCharacterHP
+            // 
+            this.pbrCharacterHP.Location = new System.Drawing.Point(6, 39);
+            this.pbrCharacterHP.Name = "pbrCharacterHP";
+            this.pbrCharacterHP.Size = new System.Drawing.Size(500, 20);
+            this.pbrCharacterHP.TabIndex = 9;
+            // 
             // pbxRobomoon
             // 
             this.pbxRobomoon.Location = new System.Drawing.Point(1305, 0);
@@ -315,77 +386,13 @@
             this.pbxCharacter.TabIndex = 7;
             this.pbxCharacter.TabStop = false;
             // 
-            // pbrRobomoonHP
-            // 
-            this.pbrRobomoonHP.Location = new System.Drawing.Point(6, 39);
-            this.pbrRobomoonHP.Name = "pbrRobomoonHP";
-            this.pbrRobomoonHP.Size = new System.Drawing.Size(500, 20);
-            this.pbrRobomoonHP.Step = 1;
-            this.pbrRobomoonHP.TabIndex = 9;
-            // 
-            // gbxRobomoonSpec
-            // 
-            this.gbxRobomoonSpec.Controls.Add(this.lblRobomoonNamn);
-            this.gbxRobomoonSpec.Controls.Add(this.pbrRobomoonHP);
-            this.gbxRobomoonSpec.Location = new System.Drawing.Point(315, 64);
-            this.gbxRobomoonSpec.Name = "gbxRobomoonSpec";
-            this.gbxRobomoonSpec.Size = new System.Drawing.Size(515, 69);
-            this.gbxRobomoonSpec.TabIndex = 10;
-            this.gbxRobomoonSpec.TabStop = false;
-            // 
-            // lblRobomoonNamn
-            // 
-            this.lblRobomoonNamn.AutoSize = true;
-            this.lblRobomoonNamn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRobomoonNamn.Location = new System.Drawing.Point(6, 16);
-            this.lblRobomoonNamn.Name = "lblRobomoonNamn";
-            this.lblRobomoonNamn.Size = new System.Drawing.Size(134, 20);
-            this.lblRobomoonNamn.TabIndex = 11;
-            this.lblRobomoonNamn.Text = "Robomoon Name";
-            // 
-            // gbxCharacterSpec
-            // 
-            this.gbxCharacterSpec.Controls.Add(this.lblCharacterHP);
-            this.gbxCharacterSpec.Controls.Add(this.lblCharacterName);
-            this.gbxCharacterSpec.Controls.Add(this.pbrCharacterHP);
-            this.gbxCharacterSpec.Location = new System.Drawing.Point(1174, 479);
-            this.gbxCharacterSpec.Name = "gbxCharacterSpec";
-            this.gbxCharacterSpec.Size = new System.Drawing.Size(515, 88);
-            this.gbxCharacterSpec.TabIndex = 11;
-            this.gbxCharacterSpec.TabStop = false;
-            // 
-            // lblCharacterHP
-            // 
-            this.lblCharacterHP.AutoSize = true;
-            this.lblCharacterHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCharacterHP.Location = new System.Drawing.Point(439, 62);
-            this.lblCharacterHP.Name = "lblCharacterHP";
-            this.lblCharacterHP.Size = new System.Drawing.Size(67, 20);
-            this.lblCharacterHP.TabIndex = 12;
-            this.lblCharacterHP.Text = "999/999";
-            // 
-            // lblCharacterName
-            // 
-            this.lblCharacterName.AutoSize = true;
-            this.lblCharacterName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCharacterName.Location = new System.Drawing.Point(6, 16);
-            this.lblCharacterName.Name = "lblCharacterName";
-            this.lblCharacterName.Size = new System.Drawing.Size(125, 20);
-            this.lblCharacterName.TabIndex = 11;
-            this.lblCharacterName.Text = "Character Name";
-            // 
-            // pbrCharacterHP
-            // 
-            this.pbrCharacterHP.Location = new System.Drawing.Point(6, 39);
-            this.pbrCharacterHP.Name = "pbrCharacterHP";
-            this.pbrCharacterHP.Size = new System.Drawing.Size(500, 20);
-            this.pbrCharacterHP.TabIndex = 9;
-            // 
             // FightArena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = global::Robomoon.Properties.Resources.Background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.gbxCharacterSpec);
             this.Controls.Add(this.gbxRobomoonSpec);
@@ -404,12 +411,12 @@
             this.gbxBackpack.ResumeLayout(false);
             this.gbxSpec.ResumeLayout(false);
             this.gbxActionText.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbxRobomoon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxCharacter)).EndInit();
             this.gbxRobomoonSpec.ResumeLayout(false);
             this.gbxRobomoonSpec.PerformLayout();
             this.gbxCharacterSpec.ResumeLayout(false);
             this.gbxCharacterSpec.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxRobomoon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxCharacter)).EndInit();
             this.ResumeLayout(false);
 
         }

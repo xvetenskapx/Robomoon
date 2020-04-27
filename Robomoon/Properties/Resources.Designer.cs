@@ -63,9 +63,29 @@ namespace Robomoon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Background {
+            get {
+                object obj = ResourceManager.GetObject("Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Jesper_No {
             get {
                 object obj = ResourceManager.GetObject("Jesper_No", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Pokemon_background_battle_8_Background_Check_All {
+            get {
+                object obj = ResourceManager.GetObject("Pokemon-background-battle-8-Background-Check-All", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
