@@ -15,19 +15,10 @@ namespace Robomoon
         Characters Player = Characters.PlayableCharacters.ElementAt(Characters.PlayableIndex);
         Characters Enemey = Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex);
 
-        int PlayerStartHealth = -1;
-        int EnemyStartHealth = -1;
-
-
         public FightArena()
         {
             InitializeComponent();
             RobomoonChoose.ActiveForm.Dispose();
-
-            PlayerStartHealth = Player.StartHealth;
-            EnemyStartHealth = Enemey.StartHealth;
-
-
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -73,7 +64,7 @@ namespace Robomoon
             //
             lblCharacterName.Text = Player.Name;
             pbrCharacterHP.Value = Healthbar(Player);
-            lblCharacterHP.Text = Player.Health.ToString() + "/" + PlayerStartHealth;
+            lblCharacterHP.Text = Player.Health.ToString() + "/" + Player.StartHealth;
             //
             // Robomoon
             //
@@ -89,6 +80,7 @@ namespace Robomoon
             //
             btnAttack1.Text = "Standard";
             btnAttack2.Text = "Doom Slap";
+            btnAttack3.Text = "Rocket Man";
             btnAttack4.Text = "Merciful Beating";
             btnAttack5.Text = "ARK";
         }
@@ -153,8 +145,8 @@ namespace Robomoon
             gbxSpec.Visible = true;
             gbxSpec.Location = new Point(95, 60);
 
-            lblCharacterSpec.Text = Player.ToString();
-            lblRobomoonSpec.Text = Enemey.ToString();
+            lblCharacterSpec.Text = Player.CharacterSpec();
+            lblRobomoonSpec.Text = Enemey.CharacterSpec();
 
             lblText.Font = new Font("Microsoft Sans Serif", 50);
             lblText.Text = "Here Is Your And His Specs";
@@ -170,172 +162,118 @@ namespace Robomoon
         //
         // End
         //
-
-
+            
+            
         //
         // Attack Buttons
         //
-        private void btnAttack1_Click(object sender, EventArgs e)
+        private void btnAttack1_Click(object sender, EventArgs e)       //Standard
         {
             //
-            // Player Fight
+            // Player
             //
-            // Attack
-            Enemey.Health -= StandardFightThe(Enemey);
-            //Health Update
-            HealthCheck(Enemey);
-            pbrRobomoonHP.Value = Healthbar(Enemey);
+            
+            Enemey.Health -= StandardFightThe(Enemey);      // Attack
+            HealthCheck(Enemey);                            //Health Check
+            pbrRobomoonHP.Value = Healthbar(Enemey);        //Health Update
             //
-            // Robomoon Fight
+            // Robomoon
             //
-            Player.Health -= EnemyFightChocie();
-            //Health Update
-            HealthCheck(Player);
-            pbrCharacterHP.Value = Healthbar(Player); //Problem
+            EnemyFightChocie();                             //Enemy Chose Attack
             //
             // Go Back
             //
-            gbxFight.Visible = false;
-            gbxDecideAction.Visible = true;
-
-            lblText.Font = new Font("Microsoft Sans Serif", 50);
-            lblText.Text = "What Are You Going To Do?";
+            DoneAttack();
 
         }
 
 
-        private void btnAttack2_Click(object sender, EventArgs e)
+        private void btnAttack2_Click(object sender, EventArgs e)       //Slap of Doom
         {
             //
-            // Player Fight
+            // Player
             //
-            // Attack
-            Enemey.Health -= DoomFightThe(Enemey);
-            //Health Update
-            HealthCheck(Enemey);
-            pbrRobomoonHP.Value = Healthbar(Enemey);
+            Enemey.Health -= DoomFightThe(Enemey);      // Attack
+            HealthCheck(Enemey);                        //Health Check
+            pbrRobomoonHP.Value = Healthbar(Enemey);    //Health Update
             //
-            // Robomoon Fight
+            // Robomoon
             //
-            Player.Health -= EnemyFightChocie();
-            //Health Update
-            HealthCheck(Player);
-            pbrCharacterHP.Value = Healthbar(Player);
+            EnemyFightChocie();                         //Enemy Chose Attack
             //
             // Go Back
             //
-            gbxFight.Visible = false;
-            gbxDecideAction.Visible = true;
-
-            lblText.Font = new Font("Microsoft Sans Serif", 50);
-            lblText.Text = "What Are You Going To Do?";
+            DoneAttack();                               //Go back to gbxDecideAction
         }
 
 
-        private void btnAttack3_Click(object sender, EventArgs e)
+        private void btnAttack3_Click(object sender, EventArgs e)       //Rocket Man
         {
-            MessageBox.Show("Programmera Knappen", "Inte Programmerad", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //
+            // Player
+            //
+            Enemey.Health -= RocketThe(Enemey);      // Attack
+            HealthCheck(Enemey);                        //Health Check
+            pbrRobomoonHP.Value = Healthbar(Enemey);    //Health Update
+            //
+            // Robomoon
+            //
+            EnemyFightChocie();                         //Enemy Chose Attack
+            //
+            // Go Back
+            //
+            DoneAttack();                               //Go back to gbxDecideAction
         }
 
 
-        private void btnAttack4_Click(object sender, EventArgs e)
+        private void btnAttack4_Click(object sender, EventArgs e)       //Merciful Beating
         {
             //
             // Player Heal
             //
-            // Healing
-            Player.Health += MercifulToo(Player);
-            //Health Update
-            pbrCharacterHP.Value = Healthbar(Player);
-
+            Player.Health += MercifulToo(Player);       // Healing
+            pbrCharacterHP.Value = Healthbar(Player);       //Health Update
             //
             // Robomoon Fight
             //
-            Player.Health -= EnemyFightChocie(); //Lägg till attack
-            //Health Update
-            HealthCheck(Player);
-            pbrCharacterHP.Value = Healthbar(Player);
+            EnemyFightChocie();     //Enemy Chose Attack
             //
             // Go Back
             //
-            gbxFight.Visible = false;
-            gbxDecideAction.Visible = true;
-
-            lblText.Font = new Font("Microsoft Sans Serif", 50);
-            lblText.Text = "What Are You Going To Do?";
+            DoneAttack();
         }
 
 
-        private void btnAttack5_Click(object sender, EventArgs e)
+        private void btnAttack5_Click(object sender, EventArgs e)       //ARK
         {
             //
-            // Player Fight
+            // Player
             //
-            // Attack
-            Enemey.Health -= ARKFightThe(Enemey);
-            //Health Update
-            HealthCheck(Enemey);
-            pbrRobomoonHP.Value = Healthbar(Enemey);
+            Enemey.Health -= ARKFightThe(Enemey);       // Attack
+            HealthCheck(Enemey);                        //Health Check
+            pbrRobomoonHP.Value = Healthbar(Enemey);    //Health Update
             //
-            // Robomoon Fight
+            // Robomoon
             //
-            Player.Health -= EnemyFightChocie();
+            EnemyFightChocie();                         //Enemy Chose Attack
             //Health Update
             HealthCheck(Player);
             pbrCharacterHP.Value = Healthbar(Player);
             //
             // Go Back
             //
-            gbxFight.Visible = false;
-            gbxDecideAction.Visible = true;
-
-            lblText.Font = new Font("Microsoft Sans Serif", 50);
-            lblText.Text = "What Are You Going To Do?";
+            DoneAttack();                               //Go back to gbxDecideAction
         }
         //
         // End
         //
-
+            
 
         //
         // Methods
         //
-        void HealthCheck(Characters characters)
-        {
-            //
-            // Robomoon Health Update
-            //
-            if (characters == Enemey)
-            {
-                if (Enemey.Health <= 0)
-                {
-                    Enemey.Health = 0;
-                    Enemey.Apearence = Enemey.DeathApearence;
-                    pbxRobomoon.Image = Enemey.Apearence;
-
-                    RobomoonChoose choose = new RobomoonChoose();
-                    choose.Show();
-                    this.Hide();
-                }
-            }
-
-            else if (characters == Player)
-            {
-                if (Player.Health <= 0)
-                {
-                    Player.Health = 0;
-                    Player.Apearence = Player.DeathApearence;
-                    pbxCharacter.Image = Player.Apearence;
-
-                    RobomoonChoose choose = new RobomoonChoose();
-                    choose.Show();
-                    this.Hide();
-                }
-            }
-
-        }
-
-        int EnemyFightChocie() 
+        void EnemyFightChocie()
+        #region
         {
             Random EnemyAttack = new Random();
             int EnemeyAttackChoice = EnemyAttack.Next(0, 100);
@@ -354,48 +292,64 @@ namespace Robomoon
                         break;
                     }
                 }
-
+            #endregion
                 if (EnemeyAttack == i)
                 {
                     switch (EnemeyAttack)
                     {
-                        case 0:
+                        case 0:     //Standard
+                        #region
                             MessageBox.Show("Standard");
-                            return StandardFightThe(Enemey);
+                            Player.Health -= StandardFightThe(Player);
+                            HealthCheck(Player);                    //Health Check/Update
                             break;
+                        #endregion
 
-                        case 1:
+                        case 1:     //Slap of Doom
+                        #region
                             MessageBox.Show("Slap of Doom");
-                            return DoomFightThe(Enemey);
+                            Player.Health -= DoomFightThe(Player);
+                            HealthCheck(Player);                    //Health Check/Update
                             break;
+                        #endregion
 
-                        case 2:
-                            MessageBox.Show("2");
-                            return 1;
+                        case 2:     //Rocket Man
+                        #region
+                            MessageBox.Show("Rocket man");
+                            Player.Health -= RocketThe(Player);
+                            HealthCheck(Player);                    //Health Check/Update
                             break;
+                        #endregion
 
-                        case 3:
-                            MessageBox.Show("3");
-                            return MercifulToo(Enemey);
+                        case 3:     //Merciful Beating
+                        #region
+                            MessageBox.Show("Merciful Beating");
+                            Enemey.Health += MercifulToo(Enemey);
+                            pbrRobomoonHP.Value = Healthbar(Enemey);                    //Health Update
                             break;
+                        #endregion
 
-                        case 4:
+                        case 4:     //ARK
+                        #region
                             MessageBox.Show("ARK");
-                            return ARKFightThe(Enemey);
+                            Player.Health -= ARKFightThe(Player);
+                            HealthCheck(Player);                    //Health Check/Update
                             break;
+                        #endregion
 
                         default:
+                        #region
                             MessageBox.Show("Default   " + "i: " + testi.ToString() + "h: " +  testh.ToString());
-                            return -1;
                             break;
+                        #endregion
                     }
+                    break;          //stoppar i-for loopen
                 }
             }
             MessageBox.Show("Loop-done   " + "i: " + testi.ToString() + "h: " + testh.ToString());
-            return -1;
         }
 
-        int StandardFightThe(Characters characters)         //Done
+        int StandardFightThe(Characters characters)     //Done
         {
             if (characters == Enemey)
             {
@@ -469,7 +423,49 @@ namespace Robomoon
             }
         }
 
-        int MercifulToo(Characters characters)
+        int RocketThe(Characters characters)            //Not even close to done
+        {
+            Random Rocket = new Random();
+            double RocketPower = (double)Rocket.Next(2);
+            if (RocketPower != 0)
+            {
+                RocketPower = (double)Rocket.Next(50, 151) / 100;
+            }
+
+            int SlapDamage;
+            if (characters == Enemey)
+            {
+                SlapDamage = (int)(Player.AttackDamage * RocketPower + 0.5);
+                if (Enemey.Defence >= Player.AttackDamage)
+                {
+                    return 1 + SlapDamage;
+                }
+                else
+                {
+                    return Player.AttackDamage - Enemey.Defence + SlapDamage;
+                }
+            }
+
+            else if (characters == Player)
+            {
+                SlapDamage = (int)(Enemey.AttackDamage * RocketPower + 0.5);
+                if (Player.Defence >= Enemey.AttackDamage)
+                {
+                    return 1 + SlapDamage;
+                }
+                else
+                {
+                    return Enemey.AttackDamage - Player.Defence + SlapDamage;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong");
+                return -1;
+            }
+        }
+        
+        int MercifulToo(Characters characters)          //Done I Belive
         {
             Random mercy = new Random();
             double Life = mercy.Next(0, 11);
@@ -478,16 +474,16 @@ namespace Robomoon
             int LifeSave;
             if (characters == Enemey)
             {
-                if (EnemyStartHealth == Enemey.Health)
+                if (Enemey.StartHealth == Enemey.Health)
                 {
                     return 0;
                 }
 
-                LifeSave = (int)(EnemyStartHealth * Life + 0.5);
+                LifeSave = (int)(Enemey.StartHealth * Life + 0.5);
 
-                if (Enemey.Health + LifeSave > EnemyStartHealth)
+                if (Enemey.Health + LifeSave > Enemey.StartHealth)
                 {
-                    return -(EnemyStartHealth - Enemey.Health);
+                    return (Enemey.StartHealth - Enemey.Health);
                 }
 
                 return LifeSave;
@@ -495,16 +491,16 @@ namespace Robomoon
 
             else if (characters == Player)
             {
-                if (PlayerStartHealth == Player.Health)
+                if (Player.StartHealth == Player.Health)
                 {
                     return 0;
                 }
 
-                LifeSave = (int)(PlayerStartHealth * Life + 0.5);
+                LifeSave = (int)(Player.StartHealth * Life + 0.5);
 
-                if (Player.Health + LifeSave > PlayerStartHealth)
+                if (Player.Health + LifeSave > Player.StartHealth)
                 {
-                    return PlayerStartHealth - Player.Health;
+                    return Player.StartHealth - Player.Health;
                 }
 
                 return LifeSave;
@@ -516,7 +512,7 @@ namespace Robomoon
             }
         }
 
-        int ARKFightThe(Characters characters)
+        int ARKFightThe(Characters characters)          //Done
         {
             Random ARK = new Random();
             int ARKChance = ARK.Next(11);
@@ -551,16 +547,55 @@ namespace Robomoon
                 MessageBox.Show("Something went wrong");
                 return -1;
             }
-        }       //Done
+        }
 
 
         //
         // Healthbar do all health check/update and so on
         //
-        int Healthbar (Characters characters)
+        void HealthCheck(Characters characters)
         {
-            double playerstarterhealth = double.Parse(PlayerStartHealth.ToString());
-            double enemystarterhealth = double.Parse(EnemyStartHealth.ToString());
+            //
+            // Robomoon Health Update
+            //
+            if (characters == Enemey)
+            {
+                if (Enemey.Health <= 0)
+                {
+                    Enemey.Health = 0;
+                    Enemey.Apearence = Enemey.DeathApearence;
+                    pbxRobomoon.Image = Enemey.Apearence;
+
+                    RobomoonChoose choose = new RobomoonChoose();
+                    choose.Show();
+                    this.Hide();
+                }
+                pbrRobomoonHP.Value = Healthbar(Enemey);
+                
+            }
+
+            else if (characters == Player)
+            {
+                if (Player.Health <= 0)
+                {
+                    Player.Health = 0;
+                    Player.Apearence = Player.DeathApearence;
+                    pbxCharacter.Image = Player.Apearence;
+
+                    RobomoonChoose choose = new RobomoonChoose();
+                    choose.Show();
+                    this.Hide();
+                }
+                pbrCharacterHP.Value = Healthbar(Player);
+            }
+
+        }
+
+
+        int Healthbar(Characters characters)
+        {
+            double playerstarterhealth = double.Parse(Player.StartHealth.ToString());
+            double enemystarterhealth = double.Parse(Enemey.StartHealth.ToString());
             double CurrentHealth = -1;
             double PercentageHealth = -1;
 
@@ -597,7 +632,7 @@ namespace Robomoon
                 lblCharacterHP.Text = CurrentHealth.ToString() + "/" + playerstarterhealth.ToString();
                 return (int)PercentageHealth;
             }
-            
+
             //
             // Back up
             //
@@ -605,7 +640,17 @@ namespace Robomoon
             {
                 return int.Parse(CurrentHealth.ToString());
             }
-            
+
+        }
+
+
+        void DoneAttack()
+        {
+            gbxFight.Visible = false;
+            gbxDecideAction.Visible = true;
+
+            lblText.Font = new Font("Microsoft Sans Serif", 50);
+            lblText.Text = "What Are You Going To Do?";
         }
         //
         // End

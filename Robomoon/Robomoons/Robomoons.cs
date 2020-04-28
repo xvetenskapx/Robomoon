@@ -49,10 +49,10 @@ namespace Robomoon
             //    default:
             //        break;
             //}
-            this.Health += health;
-            this.StartHealth += health;
-            this.AttackDamage += attackdamage;
-            this.Defence += defence;
+            this.Health = health;
+            this.StartHealth = health;
+            this.AttackDamage = attackdamage;
+            this.Defence = defence;
             this.Apearence = apearence;
             this.DeathApearence = deathapearence;
 
@@ -63,6 +63,15 @@ namespace Robomoon
             return "Name: " + this.Name + "\r\n" +
                    "Race: " + this.Race + "\r\n" + 
                    "Health: " + this.Health + "\r\n" + 
+                   "AttackDamage: " + this.AttackDamage + "\r\n" +
+                   "Defence: " + this.Defence;
+        }
+
+        public string CharacterSpec()
+        {
+            return "Name: " + this.Name + "\r\n" +
+                   "Race: " + this.Race + "\r\n" +
+                   "Health: " + this.StartHealth + "\r\n" +
                    "AttackDamage: " + this.AttackDamage + "\r\n" +
                    "Defence: " + this.Defence;
         }
