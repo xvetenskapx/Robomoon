@@ -78,7 +78,9 @@
             // lblYourCharacter
             // 
             this.lblYourCharacter.AutoSize = true;
+            this.lblYourCharacter.BackColor = System.Drawing.Color.Transparent;
             this.lblYourCharacter.Font = new System.Drawing.Font("Arial", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblYourCharacter.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblYourCharacter.Location = new System.Drawing.Point(60, 9);
             this.lblYourCharacter.Name = "lblYourCharacter";
             this.lblYourCharacter.Size = new System.Drawing.Size(329, 51);
@@ -88,7 +90,9 @@
             // lblYourEnemy
             // 
             this.lblYourEnemy.AutoSize = true;
+            this.lblYourEnemy.BackColor = System.Drawing.Color.Transparent;
             this.lblYourEnemy.Font = new System.Drawing.Font("Arial", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblYourEnemy.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblYourEnemy.Location = new System.Drawing.Point(1562, 9);
             this.lblYourEnemy.Name = "lblYourEnemy";
             this.lblYourEnemy.Size = new System.Drawing.Size(269, 51);
@@ -128,6 +132,7 @@
             // 
             // lblVS
             // 
+            this.lblVS.BackColor = System.Drawing.Color.Transparent;
             this.lblVS.Font = new System.Drawing.Font("Arial", 200.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVS.Location = new System.Drawing.Point(715, 155);
             this.lblVS.Name = "lblVS";

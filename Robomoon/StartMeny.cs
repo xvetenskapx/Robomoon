@@ -19,24 +19,17 @@ namespace Robomoon
 
         private void StartMeny_Load(object sender, EventArgs e)
         {
-            //Gör skärmen i fullstorlek
+            //Set Window to full sized
             this.WindowState = FormWindowState.Maximized;
+            //Change Background
+            this.BackgroundImage = Image.FromFile("Picture\\Other\\MenyBakcground.bmp");
+        }
 
-            //Öppnar nästa fönster där valet av Robomoon är
+        private void lblstartgame_Click(object sender, EventArgs e)
+        {
             RobomoonChoose robomoonChoose = new RobomoonChoose();
             robomoonChoose.Show();
-        }
-
-        private void MainMenyClosing_Tick(object sender, EventArgs e)
-        {
-            //Gömmer start menyn. Första formet kan ej stängas ner. Då stängs applicationen ner.
             this.Hide();
-        }
-
-        private void btnStartGame_Click(object sender, EventArgs e)
-        {
-            //Glöm inte kanppen
-            MessageBox.Show("Glöm inte denna knappen");
         }
     }
 }

@@ -28,44 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.MainMenyClosing = new System.Windows.Forms.Timer(this.components);
-            this.btnStartGame = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblstartgame = new System.Windows.Forms.Label();
+            this.lblCreator = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // MainMenyClosing
+            // lblTitle
             // 
-            this.MainMenyClosing.Enabled = true;
-            this.MainMenyClosing.Interval = 10;
-            this.MainMenyClosing.Tick += new System.EventHandler(this.MainMenyClosing_Tick);
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Kristen ITC", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.Silver;
+            this.lblTitle.Location = new System.Drawing.Point(379, 89);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(1162, 131);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "Welcome To Robomoon";
             // 
-            // btnStartGame
+            // lblstartgame
             // 
-            this.btnStartGame.Location = new System.Drawing.Point(386, 346);
-            this.btnStartGame.Name = "btnStartGame";
-            this.btnStartGame.Size = new System.Drawing.Size(75, 23);
-            this.btnStartGame.TabIndex = 0;
-            this.btnStartGame.Text = "Start Game";
-            this.btnStartGame.UseVisualStyleBackColor = true;
-            this.btnStartGame.Click += new System.EventHandler(this.btnStartGame_Click);
+            this.lblstartgame.AutoSize = true;
+            this.lblstartgame.BackColor = System.Drawing.Color.Transparent;
+            this.lblstartgame.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblstartgame.Font = new System.Drawing.Font("Kristen ITC", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblstartgame.ForeColor = System.Drawing.Color.Silver;
+            this.lblstartgame.Location = new System.Drawing.Point(810, 506);
+            this.lblstartgame.Name = "lblstartgame";
+            this.lblstartgame.Size = new System.Drawing.Size(299, 68);
+            this.lblstartgame.TabIndex = 2;
+            this.lblstartgame.Text = "Start Game";
+            this.lblstartgame.Click += new System.EventHandler(this.lblstartgame_Click);
+            // 
+            // lblCreator
+            // 
+            this.lblCreator.AutoSize = true;
+            this.lblCreator.BackColor = System.Drawing.Color.Transparent;
+            this.lblCreator.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreator.ForeColor = System.Drawing.Color.Silver;
+            this.lblCreator.Location = new System.Drawing.Point(807, 584);
+            this.lblCreator.Name = "lblCreator";
+            this.lblCreator.Size = new System.Drawing.Size(304, 25);
+            this.lblCreator.TabIndex = 3;
+            this.lblCreator.Text = "Made by: André Edvardsson Te18Te";
             // 
             // StartMeny
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(811, 451);
-            this.Controls.Add(this.btnStartGame);
+            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.lblCreator);
+            this.Controls.Add(this.lblstartgame);
+            this.Controls.Add(this.lblTitle);
             this.Name = "StartMeny";
             this.Text = "StartMeny";
             this.Load += new System.EventHandler(this.StartMeny_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Timer MainMenyClosing;
-        private System.Windows.Forms.Button btnStartGame;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblstartgame;
+        private System.Windows.Forms.Label lblCreator;
     }
 }
 

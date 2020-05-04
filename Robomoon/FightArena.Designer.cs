@@ -30,8 +30,6 @@
         {
             this.gbxDecideAction = new System.Windows.Forms.GroupBox();
             this.btnFight = new System.Windows.Forms.Button();
-            this.btnRun = new System.Windows.Forms.Button();
-            this.btnBackpack = new System.Windows.Forms.Button();
             this.btnCharacter = new System.Windows.Forms.Button();
             this.gbxFight = new System.Windows.Forms.GroupBox();
             this.btnAttack5 = new System.Windows.Forms.Button();
@@ -73,8 +71,6 @@
             // gbxDecideAction
             // 
             this.gbxDecideAction.Controls.Add(this.btnFight);
-            this.gbxDecideAction.Controls.Add(this.btnRun);
-            this.gbxDecideAction.Controls.Add(this.btnBackpack);
             this.gbxDecideAction.Controls.Add(this.btnCharacter);
             this.gbxDecideAction.Location = new System.Drawing.Point(95, 60);
             this.gbxDecideAction.Name = "gbxDecideAction";
@@ -88,40 +84,18 @@
             this.btnFight.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFight.Location = new System.Drawing.Point(6, 19);
             this.btnFight.Name = "btnFight";
-            this.btnFight.Size = new System.Drawing.Size(130, 35);
+            this.btnFight.Size = new System.Drawing.Size(348, 35);
             this.btnFight.TabIndex = 4;
             this.btnFight.Text = "FIGHT";
             this.btnFight.UseVisualStyleBackColor = true;
             this.btnFight.Click += new System.EventHandler(this.btnFight_Click);
-            // 
-            // btnRun
-            // 
-            this.btnRun.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRun.Location = new System.Drawing.Point(224, 89);
-            this.btnRun.Name = "btnRun";
-            this.btnRun.Size = new System.Drawing.Size(130, 35);
-            this.btnRun.TabIndex = 1;
-            this.btnRun.Text = "RUN";
-            this.btnRun.UseVisualStyleBackColor = true;
-            this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
-            // 
-            // btnBackpack
-            // 
-            this.btnBackpack.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackpack.Location = new System.Drawing.Point(224, 19);
-            this.btnBackpack.Name = "btnBackpack";
-            this.btnBackpack.Size = new System.Drawing.Size(130, 35);
-            this.btnBackpack.TabIndex = 3;
-            this.btnBackpack.Text = "BACKPACK";
-            this.btnBackpack.UseVisualStyleBackColor = true;
-            this.btnBackpack.Click += new System.EventHandler(this.btnBackpack_Click);
             // 
             // btnCharacter
             // 
             this.btnCharacter.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCharacter.Location = new System.Drawing.Point(6, 89);
             this.btnCharacter.Name = "btnCharacter";
-            this.btnCharacter.Size = new System.Drawing.Size(130, 35);
+            this.btnCharacter.Size = new System.Drawing.Size(348, 35);
             this.btnCharacter.TabIndex = 2;
             this.btnCharacter.Text = "CHARACTER";
             this.btnCharacter.UseVisualStyleBackColor = true;
@@ -205,10 +179,11 @@
             // 
             // gbxActions
             // 
+            this.gbxActions.BackColor = System.Drawing.Color.Transparent;
+            this.gbxActions.Controls.Add(this.gbxDecideAction);
             this.gbxActions.Controls.Add(this.gbxBackpack);
             this.gbxActions.Controls.Add(this.gbxSpec);
             this.gbxActions.Controls.Add(this.gbxFight);
-            this.gbxActions.Controls.Add(this.gbxDecideAction);
             this.gbxActions.Location = new System.Drawing.Point(1298, 691);
             this.gbxActions.Name = "gbxActions";
             this.gbxActions.Size = new System.Drawing.Size(594, 338);
@@ -234,7 +209,6 @@
             this.btnGoBackBackpack.TabIndex = 0;
             this.btnGoBackBackpack.Text = "Go Back";
             this.btnGoBackBackpack.UseVisualStyleBackColor = true;
-            this.btnGoBackBackpack.Click += new System.EventHandler(this.btnGoBackBackpack_Click);
             // 
             // gbxSpec
             // 
@@ -281,6 +255,7 @@
             // 
             // gbxActionText
             // 
+            this.gbxActionText.BackColor = System.Drawing.Color.Transparent;
             this.gbxActionText.Controls.Add(this.lblText);
             this.gbxActionText.Location = new System.Drawing.Point(12, 691);
             this.gbxActionText.Name = "gbxActionText";
@@ -424,9 +399,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbxDecideAction;
-        private System.Windows.Forms.Button btnBackpack;
         private System.Windows.Forms.Button btnCharacter;
-        private System.Windows.Forms.Button btnRun;
         private System.Windows.Forms.Button btnFight;
         private System.Windows.Forms.GroupBox gbxFight;
         private System.Windows.Forms.Button btnAttack5;
