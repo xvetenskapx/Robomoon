@@ -199,6 +199,7 @@
             this.Text = "RobomoonChoose";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RobomoonChoose_FormClosing);
+            //this.Load += new System.EventHandler(this.RobomoonChoose_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxCharacterAppearance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxEnemyAppearance)).EndInit();
             this.ResumeLayout(false);

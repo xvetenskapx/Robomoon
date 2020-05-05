@@ -12,6 +12,8 @@ namespace Robomoon
 {
     public partial class StartMeny : Form
     {
+        RobomoonChoose robomoonChoose = new RobomoonChoose();
+
         public StartMeny()
         {
             InitializeComponent();
@@ -27,7 +29,6 @@ namespace Robomoon
 
         private void lblstartgame_Click(object sender, EventArgs e)
         {
-            RobomoonChoose robomoonChoose = new RobomoonChoose();
             robomoonChoose.Show();
             this.Hide();
         }

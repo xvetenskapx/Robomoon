@@ -13,6 +13,8 @@ namespace Robomoon
 {
     class Characters
     {
+        // Bool if when aldready have created our characters
+        public static bool CreatorNotRun = true;
         //
         // Characters properties
         //
@@ -50,7 +52,6 @@ namespace Robomoon
             this.Defence = defence;
             this.Apearence = apearence;
             this.DeathApearence = deathapearence;
-
         }
 
         public override string ToString()

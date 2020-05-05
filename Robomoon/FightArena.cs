@@ -147,7 +147,10 @@ namespace Robomoon
             //
             // Robomoon
             //
-            EnemyFightChocie();                             //Enemy Chose Attack and do an health check and update
+            if (Enemey.Health != 0)
+            {
+                EnemyFightChocie();                             //Enemy Chose Attack and do an health check and update
+            }
             //
             // Go Back
             //
@@ -167,7 +170,10 @@ namespace Robomoon
             //
             // Robomoon
             //
-            EnemyFightChocie();                         //Enemy Chose Attack and do an health check and update
+            if (Enemey.Health != 0)
+            {
+                EnemyFightChocie();                             //Enemy Chose Attack and do an health check and update
+            }
             //
             // Go Back
             //
@@ -186,7 +192,10 @@ namespace Robomoon
             //
             // Robomoon
             //
-            EnemyFightChocie();                         //Enemy Chose Attack and do an health check and update
+            if (Enemey.Health != 0)
+            {
+                EnemyFightChocie();                             //Enemy Chose Attack and do an health check and update
+            }
             //
             // Go Back
             //
@@ -204,7 +213,10 @@ namespace Robomoon
             //
             // Robomoon Fight
             //
-            EnemyFightChocie();                             //Enemy Chose Attack and do an health check and update
+            if (Enemey.Health != 0)
+            {
+                EnemyFightChocie();                             //Enemy Chose Attack and do an health check and update
+            }
             //
             // Go Back
             //
@@ -223,10 +235,10 @@ namespace Robomoon
             //
             // Robomoon
             //
-            EnemyFightChocie();                             //Enemy Chose Attack and do an health check and update
-            //Health Update
-            HealthCheck(Player);
-            pbrCharacterHP.Value = Healthbar(Player);
+            if (Enemey.Health != 0)
+            {
+                EnemyFightChocie();                             //Enemy Chose Attack and do an health check and update
+            }
             //
             // Go Back
             //
@@ -264,7 +276,7 @@ namespace Robomoon
                     {
                         case 0:     //Standard
                             #region
-                            MessageBox.Show("Standard");
+                            //MessageBox.Show("Standard");
                             Player.Health -= StandardFightThe(Player);
                             HealthCheck(Player);                            //Health Check/Update
                             break;
@@ -272,7 +284,7 @@ namespace Robomoon
 
                         case 1:     //Slap of Doom
                             #region
-                            MessageBox.Show("Slap of Doom");
+                            //MessageBox.Show("Slap of Doom");
                             Player.Health -= DoomFightThe(Player);
                             HealthCheck(Player);                            //Health Check/Update
                             break;
@@ -280,7 +292,7 @@ namespace Robomoon
 
                         case 2:     //Rocket Man
                             #region
-                            MessageBox.Show("Rocket man");
+                            //MessageBox.Show("Rocket man");
                             Player.Health -= RocketThe(Player);
                             HealthCheck(Player);                            //Health Check/Update
                             break;
@@ -288,7 +300,7 @@ namespace Robomoon
 
                         case 3:     //Merciful Beating
                             #region
-                            MessageBox.Show("Merciful Beating");
+                            //MessageBox.Show("Merciful Beating");
                             Enemey.Health += MercifulToo(Enemey);
                             pbrRobomoonHP.Value = Healthbar(Enemey);        //Health Update
                             break;
@@ -296,7 +308,7 @@ namespace Robomoon
 
                         case 4:     //ARK
                             #region
-                            MessageBox.Show("ARK");
+                            //MessageBox.Show("ARK");
                             Player.Health -= ARKFightThe(Player);
                             HealthCheck(Player);                            //Health Check/Update
                             break;
@@ -490,13 +502,13 @@ namespace Robomoon
         {
             Random ARK = new Random();
             int ARKChance = ARK.Next(11);               //it is only a tenths chance to get an succesiful ARK. Bucuse ARK is very powerfull
-            MessageBox.Show("ARK" + ARKChance.ToString());
+            //MessageBox.Show("ARK" + ARKChance.ToString());
 
             if (characters == Player)
             {
                 if (ARKChance == 1)
                 {
-                    return 15;
+                    return 30;
                 }
 
                 else
@@ -540,6 +552,7 @@ namespace Robomoon
                     Enemey.Apearence = Enemey.DeathApearence;
                     pbxRobomoon.Image = Enemey.Apearence;
 
+                    Characters.CreatorNotRun = false;                       //Our Characters has already been created
                     RobomoonChoose choose = new RobomoonChoose();
                     choose.Show();
                     this.Hide();
@@ -555,6 +568,7 @@ namespace Robomoon
                     Player.Apearence = Player.DeathApearence;
                     pbxCharacter.Image = Player.Apearence;
 
+                    Characters.CreatorNotRun = false;                       //Our Characters has already been created
                     RobomoonChoose choose = new RobomoonChoose();
                     choose.Show();
                     this.Hide();

@@ -10,31 +10,14 @@ using System.Windows.Forms;
 
 namespace Robomoon
 {
-    //
-    //
-    //
-    //
-    //
-    //
-    // Fixa så att när Robomoon är död så avslutas spelet och Robomoon kan inte anfalla.
-    //
-    // Samt kolla ifall jag borde lägga en Random på HP, ATTADMG, DEF
-    //
-    // Varför stäng formen ner när jag trycker på Fight (händer ibland)
-    //
-    //
-    //
-    //
-    //
-    //
-    //
+
     public partial class RobomoonChoose : Form
     {
         //
         // Character
         //
         //Random for the random character button
-        new Random RandomCharacter = new Random();
+        Random RandomCharacter = new Random();
 
         //Count if random button on or off
         int PlayableCharacterButtonRandom = 0;
@@ -47,42 +30,74 @@ namespace Robomoon
         public RobomoonChoose()
         {
             InitializeComponent();
+            if (Characters.CreatorNotRun)
+            {
+                Random CharacterStats = new Random();
+                //
+                // Playable Character Creation
+                //
+                //André, Human
+                Characters.PlayableCharacters.Add(new Characters("André", "Human", CharacterStats.Next(10, 51), CharacterStats.Next(10, 51), CharacterStats.Next(10, 51), Image.FromFile("Picture\\Characters\\Andre.bmp"), Image.FromFile("Picture\\Characters\\Defeted\\DefetedAndre.bmp")));
 
-            //
-            // Playable Character Creation
-            //
-            //André, Human
-            Characters.PlayableCharacters.Add(new Characters("André", "Human", 26, 22, 15, Image.FromFile("Picture\\Characters\\Andre.bmp"), Image.FromFile("Picture\\Characters\\Defeted\\DefetedAndre.bmp")));
-            lbxCharacterChoose.Items.Add(Characters.PlayableCharacters.ElementAt(0).Name);
+                //Jesper, Human
+                Characters.PlayableCharacters.Add(new Characters("Jesper", "Human", CharacterStats.Next(10, 51), CharacterStats.Next(10, 51), CharacterStats.Next(10, 51), Image.FromFile("Picture\\Characters\\Jesper.bmp"), Image.FromFile("Picture\\Characters\\Defeted\\DefetedJesper.bmp")));
 
-            //Jesper, Human
-            Characters.PlayableCharacters.Add(new Characters("Jesper", "Human", 18, 11, 22, Image.FromFile("Picture\\Characters\\Jesper.bmp"), Image.FromFile("Picture\\Characters\\Defeted\\DefetedJesper.bmp")));
-            lbxCharacterChoose.Items.Add(Characters.PlayableCharacters.ElementAt(1).Name);
+                //Wilma, Dog
+                Characters.PlayableCharacters.Add(new Characters("Wilma", "Dog", CharacterStats.Next(10, 51), CharacterStats.Next(10, 51), CharacterStats.Next(10, 51), Image.FromFile("Picture\\Characters\\Wilma.bmp"), Image.FromFile("Picture\\Characters\\Defeted\\DefetedWilma.bmp")));
+                //
+                // Robomoon Character Creation
+                //
+                //xvetenskapx, Robomoon
+                Characters.RobomoonCharacters.Add(new Characters("xvetenskapx", "Robomoon", CharacterStats.Next(10, 51), CharacterStats.Next(10, 51), CharacterStats.Next(10, 51), Image.FromFile("Picture\\Robomoon\\André_H.bmp"), Image.FromFile("Picture\\Robomoon\\Defeted\\Defetedxvetenskapx.bmp")));
 
-            //Wilma, Dog
-            Characters.PlayableCharacters.Add(new Characters("Wilma", "Dog", 14, 22, 12, Image.FromFile("Picture\\Characters\\Wilma.bmp"), Image.FromFile("Picture\\Characters\\Defeted\\DefetedWilma.bmp")));
-            lbxCharacterChoose.Items.Add(Characters.PlayableCharacters.ElementAt(2).Name);
+                //Nightking2002, Robomoon
+                Characters.RobomoonCharacters.Add(new Characters("Nightking2002", "Robomoon", CharacterStats.Next(10, 51), CharacterStats.Next(10, 51), CharacterStats.Next(10, 51), Image.FromFile("Picture\\Robomoon\\Jesper_No.bmp"), Image.FromFile("Picture\\Robomoon\\Defeted\\DefetedNightking2002.bmp")));
 
-            //
-            // Robomoon Character Creation
-            //
-            //xvetenskapx, Robomoon
-            Characters.RobomoonCharacters.Add(new Characters("xvetenskapx", "Robomoon", 21, 22, 17, Image.FromFile("Picture\\Robomoon\\André_H.bmp"), Image.FromFile("Picture\\Robomoon\\Defeted\\Defetedxvetenskapx.bmp")));
-            lbxEnemyChoose.Items.Add(Characters.RobomoonCharacters.ElementAt(0).Name);
+                //Piggy, Pig
+                Characters.RobomoonCharacters.Add(new Characters("Piggy", "Pig", CharacterStats.Next(10, 51), CharacterStats.Next(10, 51), CharacterStats.Next(10, 51), Image.FromFile("Picture\\Robomoon\\Piggy.bmp"), Image.FromFile("Picture\\Robomoon\\Defeted\\DefetedPiggy.bmp")));
 
-            //Nightking2002, Robomoon
-            Characters.RobomoonCharacters.Add(new Characters("Nightking2002", "Robomoon", 23, 15, 27, Image.FromFile("Picture\\Robomoon\\Jesper_No.bmp"), Image.FromFile("Picture\\Robomoon\\Defeted\\DefetedNightking2002.bmp")));
-            lbxEnemyChoose.Items.Add(Characters.RobomoonCharacters.ElementAt(1).Name);
+                
+            }
 
-            //Piggy, Pig
-            Characters.RobomoonCharacters.Add(new Characters("Piggy", "Pig", 10, 22, 26, Image.FromFile("Picture\\Robomoon\\Piggy.bmp"), Image.FromFile("Picture\\Robomoon\\Defeted\\DefetedPiggy.bmp")));
-            lbxEnemyChoose.Items.Add(Characters.RobomoonCharacters.ElementAt(2).Name);
+            int LiveCharacters = Characters.PlayableCharacters.Count;                                                                               //count of who many character are still ailve
+            int LiveRobomoon = Characters.RobomoonCharacters.Count;                                                                                 //count of who many Robomoon are still ailve
+            
+            for (int i = 0; i < Characters.PlayableCharacters.Count; i++)                                                                           //put every character in the lisbox
+            {
+                lbxCharacterChoose.Items.Add(Characters.PlayableCharacters.ElementAt(i).Name);
+                if (Characters.PlayableCharacters.ElementAt(i).Health == 0)
+                {
+                    LiveCharacters--;
+                }
+            }
+            lbxCharacterChoose.SelectedIndex = 2;                                                                                                   //choose a first character
+            
+            for (int i = 0; i < Characters.RobomoonCharacters.Count; i++)                                                                           //put every robomoon in the listbox
+            {
+                lbxEnemyChoose.Items.Add(Characters.RobomoonCharacters.ElementAt(i).Name);
+                if (Characters.RobomoonCharacters.ElementAt(i).Health == 0)
+                {
+                    LiveRobomoon--;
+                }
+            }
+            lbxEnemyChoose.SelectedIndex = 2;                                                                                                       //choose a first robomoon
+            
+            if (LiveCharacters == 0)                                                                                                                //check if everyone is dead
+            {
+                MessageBox.Show("Every player character is dead, what a waste", "Noooo!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                btnFight.Enabled = false;
+                btnRandomCharacter.Enabled = false;
+                btnRandomEnemy.Enabled = false;
+            }
+            else if (LiveRobomoon == 0)                                                                                                             //check if everyone is dead
+            {
+                MessageBox.Show("Every Robomoon is dead, So easy", "Yahoo!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                btnFight.Enabled = false;
+                btnRandomCharacter.Enabled = false;
+                btnRandomEnemy.Enabled = false;
+            }
 
-            //Which is the first character to be shown
-            lbxCharacterChoose.SelectedIndex = 2;
-            lbxEnemyChoose.SelectedIndex = 2;
-
-            this.BackgroundImage = Image.FromFile("Picture\\Other\\MenyBakcground.bmp");
+            this.BackgroundImage = Image.FromFile("Picture\\Other\\MenyBakcground.bmp");                                                            //load in background
         }
 
         private void RobomoonChoose_FormClosing(object sender, FormClosingEventArgs e)
@@ -117,15 +132,24 @@ namespace Robomoon
             if (PlayableCharacterButtonRandom == 0)                             //Check so random is not on and turn on it
             {
                 //Randomize character
-                Characters.PlayerIndex = RandomCharacter.Next(0, Characters.PlayableCharacters.Count);
-                
-                //
-                // Change button color
-                //
-                btnRandomCharacter.BackColor = Color.Green;
-                PlayableCharacterButtonRandom++;
-            }
+                while (true)
+                {
+                    Characters.PlayerIndex = RandomCharacter.Next(0, Characters.PlayableCharacters.Count);
+                    if (Characters.PlayableCharacters.ElementAt(Characters.PlayerIndex).Health > 0)
+                    {
+                        //
+                        // Change button color
+                        //
+                        btnRandomCharacter.BackColor = Color.Green;
+                        PlayableCharacterButtonRandom++;
 
+                        //Stop loop
+                        break;
+                    }
+                }
+                
+
+            }
             else                                                    //Go back to players choice of character
             {
                 Characters.PlayerIndex = playerindex;
@@ -144,13 +168,23 @@ namespace Robomoon
             if (EnemeyCharacterButtonRandom == 0)           //Check so random is not on and turn on it
             {
                 //Randomize Robomoon
-                Characters.RobomoonIndex = RandomCharacter.Next(0, Characters.RobomoonCharacters.Count);
+                while (true)
+                {
+                    Characters.RobomoonIndex = RandomCharacter.Next(0, Characters.RobomoonCharacters.Count);
+                    if (Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex).Health > 0)
+                    {
+                        //
+                        // Change button color
+                        //
+                        btnRandomEnemy.BackColor = Color.Green;
+                        EnemeyCharacterButtonRandom++;
 
-                //
-                // Change button color
-                //
-                btnRandomEnemy.BackColor = Color.Green;
-                EnemeyCharacterButtonRandom++;
+                        //stop loop
+                        break;
+                    }
+                }
+
+
             }
             else                                                    //Go back to players choice of Robomoon
             {
@@ -181,7 +215,6 @@ namespace Robomoon
                 //Open the fight form
                 FightArena fightArena = new FightArena();
                 fightArena.Show();
-
 
                 // Hide this form
                 this.Hide();
