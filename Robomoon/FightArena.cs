@@ -551,6 +551,7 @@ namespace Robomoon
                     Enemey.Health = 0;
                     Enemey.Apearence = Enemey.DeathApearence;
                     pbxRobomoon.Image = Enemey.Apearence;
+                    MessageBox.Show(Enemey.Name + " has been killed", "Robomoon", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);        //Tell how have been killed
 
                     Characters.CreatorNotRun = false;                       //Our Characters has already been created
                     RobomoonChoose choose = new RobomoonChoose();
@@ -567,6 +568,7 @@ namespace Robomoon
                     Player.Health = 0;
                     Player.Apearence = Player.DeathApearence;
                     pbxCharacter.Image = Player.Apearence;
+                    MessageBox.Show(Player.Name + " has been killed", "Plyer Killed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);        //Tell how have been killed
 
                     Characters.CreatorNotRun = false;                       //Our Characters has already been created
                     RobomoonChoose choose = new RobomoonChoose();
