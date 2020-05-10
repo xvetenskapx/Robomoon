@@ -28,338 +28,314 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gbxDecideAction = new System.Windows.Forms.GroupBox();
-            this.btnFight = new System.Windows.Forms.Button();
-            this.btnCharacter = new System.Windows.Forms.Button();
-            this.gbxFight = new System.Windows.Forms.GroupBox();
-            this.btnAttack5 = new System.Windows.Forms.Button();
-            this.btnGoBack = new System.Windows.Forms.Button();
-            this.btnAttack4 = new System.Windows.Forms.Button();
-            this.btnAttack3 = new System.Windows.Forms.Button();
-            this.btnAttack2 = new System.Windows.Forms.Button();
-            this.btnAttack1 = new System.Windows.Forms.Button();
-            this.gbxActions = new System.Windows.Forms.GroupBox();
-            this.gbxBackpack = new System.Windows.Forms.GroupBox();
-            this.btnGoBackBackpack = new System.Windows.Forms.Button();
-            this.gbxSpec = new System.Windows.Forms.GroupBox();
-            this.btnGoBackSpecs = new System.Windows.Forms.Button();
-            this.lblRobomoonSpec = new System.Windows.Forms.Label();
-            this.lblCharacterSpec = new System.Windows.Forms.Label();
-            this.gbxActionText = new System.Windows.Forms.GroupBox();
-            this.lblText = new System.Windows.Forms.Label();
-            this.pbrRobomoonHP = new System.Windows.Forms.ProgressBar();
-            this.gbxRobomoonSpec = new System.Windows.Forms.GroupBox();
-            this.lblRobomoonNamn = new System.Windows.Forms.Label();
-            this.gbxCharacterSpec = new System.Windows.Forms.GroupBox();
-            this.lblCharacterHP = new System.Windows.Forms.Label();
-            this.lblCharacterName = new System.Windows.Forms.Label();
-            this.pbrCharacterHP = new System.Windows.Forms.ProgressBar();
-            this.pbxRobomoon = new System.Windows.Forms.PictureBox();
-            this.pbxCharacter = new System.Windows.Forms.PictureBox();
-            this.gbxDecideAction.SuspendLayout();
-            this.gbxFight.SuspendLayout();
-            this.gbxActions.SuspendLayout();
-            this.gbxBackpack.SuspendLayout();
-            this.gbxSpec.SuspendLayout();
-            this.gbxActionText.SuspendLayout();
-            this.gbxRobomoonSpec.SuspendLayout();
-            this.gbxCharacterSpec.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxRobomoon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxCharacter)).BeginInit();
+            this.GbxDecideAction = new System.Windows.Forms.GroupBox();
+            this.BtnFight = new System.Windows.Forms.Button();
+            this.BtnCharacter = new System.Windows.Forms.Button();
+            this.GbxFight = new System.Windows.Forms.GroupBox();
+            this.BtnAttack5 = new System.Windows.Forms.Button();
+            this.BtnGoBack = new System.Windows.Forms.Button();
+            this.BtnAttack4 = new System.Windows.Forms.Button();
+            this.BtnAttack3 = new System.Windows.Forms.Button();
+            this.BtnAttack2 = new System.Windows.Forms.Button();
+            this.BtnAttack1 = new System.Windows.Forms.Button();
+            this.GbxActions = new System.Windows.Forms.GroupBox();
+            this.GbxSpec = new System.Windows.Forms.GroupBox();
+            this.BtnGoBackSpecs = new System.Windows.Forms.Button();
+            this.LblRobomoonSpec = new System.Windows.Forms.Label();
+            this.LblCharacterSpec = new System.Windows.Forms.Label();
+            this.GbxActionText = new System.Windows.Forms.GroupBox();
+            this.LblText = new System.Windows.Forms.Label();
+            this.PbrRobomoonHP = new System.Windows.Forms.ProgressBar();
+            this.GbxRobomoonSpec = new System.Windows.Forms.GroupBox();
+            this.LblRobomoonNamn = new System.Windows.Forms.Label();
+            this.GbxCharacterSpec = new System.Windows.Forms.GroupBox();
+            this.LblCharacterHP = new System.Windows.Forms.Label();
+            this.LblCharacterName = new System.Windows.Forms.Label();
+            this.PbrCharacterHP = new System.Windows.Forms.ProgressBar();
+            this.PbxRobomoon = new System.Windows.Forms.PictureBox();
+            this.PbxCharacter = new System.Windows.Forms.PictureBox();
+            this.GbxDecideAction.SuspendLayout();
+            this.GbxFight.SuspendLayout();
+            this.GbxActions.SuspendLayout();
+            this.GbxSpec.SuspendLayout();
+            this.GbxActionText.SuspendLayout();
+            this.GbxRobomoonSpec.SuspendLayout();
+            this.GbxCharacterSpec.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxRobomoon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxCharacter)).BeginInit();
             this.SuspendLayout();
             // 
-            // gbxDecideAction
+            // GbxDecideAction
             // 
-            this.gbxDecideAction.Controls.Add(this.btnFight);
-            this.gbxDecideAction.Controls.Add(this.btnCharacter);
-            this.gbxDecideAction.Location = new System.Drawing.Point(95, 60);
-            this.gbxDecideAction.Name = "gbxDecideAction";
-            this.gbxDecideAction.Size = new System.Drawing.Size(360, 130);
-            this.gbxDecideAction.TabIndex = 0;
-            this.gbxDecideAction.TabStop = false;
-            this.gbxDecideAction.Text = "Decide Action";
+            this.GbxDecideAction.Controls.Add(this.BtnFight);
+            this.GbxDecideAction.Controls.Add(this.BtnCharacter);
+            this.GbxDecideAction.Location = new System.Drawing.Point(95, 60);
+            this.GbxDecideAction.Name = "GbxDecideAction";
+            this.GbxDecideAction.Size = new System.Drawing.Size(360, 130);
+            this.GbxDecideAction.TabIndex = 0;
+            this.GbxDecideAction.TabStop = false;
+            this.GbxDecideAction.Text = "Decide Action";
             // 
-            // btnFight
+            // BtnFight
             // 
-            this.btnFight.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFight.Location = new System.Drawing.Point(6, 19);
-            this.btnFight.Name = "btnFight";
-            this.btnFight.Size = new System.Drawing.Size(348, 35);
-            this.btnFight.TabIndex = 4;
-            this.btnFight.Text = "FIGHT";
-            this.btnFight.UseVisualStyleBackColor = true;
-            this.btnFight.Click += new System.EventHandler(this.btnFight_Click);
+            this.BtnFight.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnFight.Location = new System.Drawing.Point(6, 19);
+            this.BtnFight.Name = "BtnFight";
+            this.BtnFight.Size = new System.Drawing.Size(348, 35);
+            this.BtnFight.TabIndex = 4;
+            this.BtnFight.Text = "FIGHT";
+            this.BtnFight.UseVisualStyleBackColor = true;
+            this.BtnFight.Click += new System.EventHandler(this.BtnFight_Click);
             // 
-            // btnCharacter
+            // BtnCharacter
             // 
-            this.btnCharacter.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCharacter.Location = new System.Drawing.Point(6, 89);
-            this.btnCharacter.Name = "btnCharacter";
-            this.btnCharacter.Size = new System.Drawing.Size(348, 35);
-            this.btnCharacter.TabIndex = 2;
-            this.btnCharacter.Text = "CHARACTER";
-            this.btnCharacter.UseVisualStyleBackColor = true;
-            this.btnCharacter.Click += new System.EventHandler(this.btnCharacter_Click);
+            this.BtnCharacter.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCharacter.Location = new System.Drawing.Point(6, 89);
+            this.BtnCharacter.Name = "BtnCharacter";
+            this.BtnCharacter.Size = new System.Drawing.Size(348, 35);
+            this.BtnCharacter.TabIndex = 2;
+            this.BtnCharacter.Text = "CHARACTER";
+            this.BtnCharacter.UseVisualStyleBackColor = true;
+            this.BtnCharacter.Click += new System.EventHandler(this.BtnCharacter_Click);
             // 
-            // gbxFight
+            // GbxFight
             // 
-            this.gbxFight.Controls.Add(this.btnAttack5);
-            this.gbxFight.Controls.Add(this.btnGoBack);
-            this.gbxFight.Controls.Add(this.btnAttack4);
-            this.gbxFight.Controls.Add(this.btnAttack3);
-            this.gbxFight.Controls.Add(this.btnAttack2);
-            this.gbxFight.Controls.Add(this.btnAttack1);
-            this.gbxFight.Location = new System.Drawing.Point(22, 149);
-            this.gbxFight.Name = "gbxFight";
-            this.gbxFight.Size = new System.Drawing.Size(360, 130);
-            this.gbxFight.TabIndex = 1;
-            this.gbxFight.TabStop = false;
-            this.gbxFight.Text = "Fight";
-            this.gbxFight.Visible = false;
+            this.GbxFight.Controls.Add(this.BtnAttack5);
+            this.GbxFight.Controls.Add(this.BtnGoBack);
+            this.GbxFight.Controls.Add(this.BtnAttack4);
+            this.GbxFight.Controls.Add(this.BtnAttack3);
+            this.GbxFight.Controls.Add(this.BtnAttack2);
+            this.GbxFight.Controls.Add(this.BtnAttack1);
+            this.GbxFight.Location = new System.Drawing.Point(31, 190);
+            this.GbxFight.Name = "GbxFight";
+            this.GbxFight.Size = new System.Drawing.Size(360, 130);
+            this.GbxFight.TabIndex = 1;
+            this.GbxFight.TabStop = false;
+            this.GbxFight.Text = "Fight";
+            this.GbxFight.Visible = false;
             // 
-            // btnAttack5
+            // BtnAttack5
             // 
-            this.btnAttack5.Location = new System.Drawing.Point(254, 19);
-            this.btnAttack5.Name = "btnAttack5";
-            this.btnAttack5.Size = new System.Drawing.Size(100, 23);
-            this.btnAttack5.TabIndex = 5;
-            this.btnAttack5.Text = "Attack 5";
-            this.btnAttack5.UseVisualStyleBackColor = true;
-            this.btnAttack5.Click += new System.EventHandler(this.btnAttack5_Click);
+            this.BtnAttack5.Location = new System.Drawing.Point(254, 19);
+            this.BtnAttack5.Name = "BtnAttack5";
+            this.BtnAttack5.Size = new System.Drawing.Size(100, 23);
+            this.BtnAttack5.TabIndex = 5;
+            this.BtnAttack5.Text = "Attack 5";
+            this.BtnAttack5.UseVisualStyleBackColor = true;
+            this.BtnAttack5.Click += new System.EventHandler(this.BtnAttack5_Click);
             // 
-            // btnGoBack
+            // BtnGoBack
             // 
-            this.btnGoBack.Location = new System.Drawing.Point(254, 101);
-            this.btnGoBack.Name = "btnGoBack";
-            this.btnGoBack.Size = new System.Drawing.Size(100, 23);
-            this.btnGoBack.TabIndex = 4;
-            this.btnGoBack.Text = "Go Back";
-            this.btnGoBack.UseVisualStyleBackColor = true;
-            this.btnGoBack.Click += new System.EventHandler(this.btnGoBack_Click);
+            this.BtnGoBack.Location = new System.Drawing.Point(254, 101);
+            this.BtnGoBack.Name = "BtnGoBack";
+            this.BtnGoBack.Size = new System.Drawing.Size(100, 23);
+            this.BtnGoBack.TabIndex = 4;
+            this.BtnGoBack.Text = "Go Back";
+            this.BtnGoBack.UseVisualStyleBackColor = true;
+            this.BtnGoBack.Click += new System.EventHandler(this.BtnGoBack_Click);
             // 
-            // btnAttack4
+            // BtnAttack4
             // 
-            this.btnAttack4.Location = new System.Drawing.Point(130, 101);
-            this.btnAttack4.Name = "btnAttack4";
-            this.btnAttack4.Size = new System.Drawing.Size(100, 23);
-            this.btnAttack4.TabIndex = 3;
-            this.btnAttack4.Text = "Attack 4";
-            this.btnAttack4.UseVisualStyleBackColor = true;
-            this.btnAttack4.Click += new System.EventHandler(this.btnAttack4_Click);
+            this.BtnAttack4.Location = new System.Drawing.Point(130, 101);
+            this.BtnAttack4.Name = "BtnAttack4";
+            this.BtnAttack4.Size = new System.Drawing.Size(100, 23);
+            this.BtnAttack4.TabIndex = 3;
+            this.BtnAttack4.Text = "Attack 4";
+            this.BtnAttack4.UseVisualStyleBackColor = true;
+            this.BtnAttack4.Click += new System.EventHandler(this.BtnAttack4_Click);
             // 
-            // btnAttack3
+            // BtnAttack3
             // 
-            this.btnAttack3.Location = new System.Drawing.Point(130, 19);
-            this.btnAttack3.Name = "btnAttack3";
-            this.btnAttack3.Size = new System.Drawing.Size(100, 23);
-            this.btnAttack3.TabIndex = 2;
-            this.btnAttack3.Text = "Attack 2";
-            this.btnAttack3.UseVisualStyleBackColor = true;
-            this.btnAttack3.Click += new System.EventHandler(this.btnAttack3_Click);
+            this.BtnAttack3.Location = new System.Drawing.Point(130, 19);
+            this.BtnAttack3.Name = "BtnAttack3";
+            this.BtnAttack3.Size = new System.Drawing.Size(100, 23);
+            this.BtnAttack3.TabIndex = 2;
+            this.BtnAttack3.Text = "Attack 2";
+            this.BtnAttack3.UseVisualStyleBackColor = true;
+            this.BtnAttack3.Click += new System.EventHandler(this.btnAttack3_Click);
             // 
-            // btnAttack2
+            // BtnAttack2
             // 
-            this.btnAttack2.Location = new System.Drawing.Point(6, 101);
-            this.btnAttack2.Name = "btnAttack2";
-            this.btnAttack2.Size = new System.Drawing.Size(100, 23);
-            this.btnAttack2.TabIndex = 1;
-            this.btnAttack2.Text = "Attack 2";
-            this.btnAttack2.UseVisualStyleBackColor = true;
-            this.btnAttack2.Click += new System.EventHandler(this.btnAttack2_Click);
+            this.BtnAttack2.Location = new System.Drawing.Point(6, 101);
+            this.BtnAttack2.Name = "BtnAttack2";
+            this.BtnAttack2.Size = new System.Drawing.Size(100, 23);
+            this.BtnAttack2.TabIndex = 1;
+            this.BtnAttack2.Text = "Attack 2";
+            this.BtnAttack2.UseVisualStyleBackColor = true;
+            this.BtnAttack2.Click += new System.EventHandler(this.BtnAttack2_Click);
             // 
-            // btnAttack1
+            // BtnAttack1
             // 
-            this.btnAttack1.Location = new System.Drawing.Point(6, 19);
-            this.btnAttack1.Name = "btnAttack1";
-            this.btnAttack1.Size = new System.Drawing.Size(100, 23);
-            this.btnAttack1.TabIndex = 0;
-            this.btnAttack1.Text = "Attack 1";
-            this.btnAttack1.UseVisualStyleBackColor = true;
-            this.btnAttack1.Click += new System.EventHandler(this.btnAttack1_Click);
+            this.BtnAttack1.Location = new System.Drawing.Point(6, 19);
+            this.BtnAttack1.Name = "BtnAttack1";
+            this.BtnAttack1.Size = new System.Drawing.Size(100, 23);
+            this.BtnAttack1.TabIndex = 0;
+            this.BtnAttack1.Text = "Attack 1";
+            this.BtnAttack1.UseVisualStyleBackColor = true;
+            this.BtnAttack1.Click += new System.EventHandler(this.BtnAttack1_Click);
             // 
-            // gbxActions
+            // GbxActions
             // 
-            this.gbxActions.BackColor = System.Drawing.Color.Transparent;
-            this.gbxActions.Controls.Add(this.gbxDecideAction);
-            this.gbxActions.Controls.Add(this.gbxBackpack);
-            this.gbxActions.Controls.Add(this.gbxSpec);
-            this.gbxActions.Controls.Add(this.gbxFight);
-            this.gbxActions.Location = new System.Drawing.Point(1298, 691);
-            this.gbxActions.Name = "gbxActions";
-            this.gbxActions.Size = new System.Drawing.Size(594, 338);
-            this.gbxActions.TabIndex = 6;
-            this.gbxActions.TabStop = false;
+            this.GbxActions.BackColor = System.Drawing.Color.Transparent;
+            this.GbxActions.Controls.Add(this.GbxDecideAction);
+            this.GbxActions.Controls.Add(this.GbxSpec);
+            this.GbxActions.Controls.Add(this.GbxFight);
+            this.GbxActions.Location = new System.Drawing.Point(1298, 691);
+            this.GbxActions.Name = "GbxActions";
+            this.GbxActions.Size = new System.Drawing.Size(594, 338);
+            this.GbxActions.TabIndex = 6;
+            this.GbxActions.TabStop = false;
             // 
-            // gbxBackpack
+            // GbxSpec
             // 
-            this.gbxBackpack.Controls.Add(this.btnGoBackBackpack);
-            this.gbxBackpack.Location = new System.Drawing.Point(427, 285);
-            this.gbxBackpack.Name = "gbxBackpack";
-            this.gbxBackpack.Size = new System.Drawing.Size(360, 130);
-            this.gbxBackpack.TabIndex = 5;
-            this.gbxBackpack.TabStop = false;
-            this.gbxBackpack.Text = "Backpack";
-            this.gbxBackpack.Visible = false;
+            this.GbxSpec.Controls.Add(this.BtnGoBackSpecs);
+            this.GbxSpec.Controls.Add(this.LblRobomoonSpec);
+            this.GbxSpec.Controls.Add(this.LblCharacterSpec);
+            this.GbxSpec.Location = new System.Drawing.Point(461, 47);
+            this.GbxSpec.Name = "GbxSpec";
+            this.GbxSpec.Size = new System.Drawing.Size(416, 219);
+            this.GbxSpec.TabIndex = 6;
+            this.GbxSpec.TabStop = false;
+            this.GbxSpec.Text = "Specs";
+            this.GbxSpec.Visible = false;
             // 
-            // btnGoBackBackpack
+            // BtnGoBackSpecs
             // 
-            this.btnGoBackBackpack.Location = new System.Drawing.Point(279, 19);
-            this.btnGoBackBackpack.Name = "btnGoBackBackpack";
-            this.btnGoBackBackpack.Size = new System.Drawing.Size(75, 23);
-            this.btnGoBackBackpack.TabIndex = 0;
-            this.btnGoBackBackpack.Text = "Go Back";
-            this.btnGoBackBackpack.UseVisualStyleBackColor = true;
+            this.BtnGoBackSpecs.Location = new System.Drawing.Point(172, 180);
+            this.BtnGoBackSpecs.Name = "BtnGoBackSpecs";
+            this.BtnGoBackSpecs.Size = new System.Drawing.Size(72, 23);
+            this.BtnGoBackSpecs.TabIndex = 2;
+            this.BtnGoBackSpecs.Text = "Go Back";
+            this.BtnGoBackSpecs.UseVisualStyleBackColor = true;
+            this.BtnGoBackSpecs.Click += new System.EventHandler(this.BtnGoBackSpecs_Click);
             // 
-            // gbxSpec
+            // LblRobomoonSpec
             // 
-            this.gbxSpec.Controls.Add(this.btnGoBackSpecs);
-            this.gbxSpec.Controls.Add(this.lblRobomoonSpec);
-            this.gbxSpec.Controls.Add(this.lblCharacterSpec);
-            this.gbxSpec.Location = new System.Drawing.Point(497, 19);
-            this.gbxSpec.Name = "gbxSpec";
-            this.gbxSpec.Size = new System.Drawing.Size(416, 219);
-            this.gbxSpec.TabIndex = 6;
-            this.gbxSpec.TabStop = false;
-            this.gbxSpec.Text = "Specs";
-            this.gbxSpec.Visible = false;
+            this.LblRobomoonSpec.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.LblRobomoonSpec.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblRobomoonSpec.Location = new System.Drawing.Point(210, 16);
+            this.LblRobomoonSpec.Name = "LblRobomoonSpec";
+            this.LblRobomoonSpec.Size = new System.Drawing.Size(200, 148);
+            this.LblRobomoonSpec.TabIndex = 1;
+            this.LblRobomoonSpec.Text = "label2";
             // 
-            // btnGoBackSpecs
+            // LblCharacterSpec
             // 
-            this.btnGoBackSpecs.Location = new System.Drawing.Point(172, 180);
-            this.btnGoBackSpecs.Name = "btnGoBackSpecs";
-            this.btnGoBackSpecs.Size = new System.Drawing.Size(72, 23);
-            this.btnGoBackSpecs.TabIndex = 2;
-            this.btnGoBackSpecs.Text = "Go Back";
-            this.btnGoBackSpecs.UseVisualStyleBackColor = true;
-            this.btnGoBackSpecs.Click += new System.EventHandler(this.btnGoBackSpecs_Click);
+            this.LblCharacterSpec.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.LblCharacterSpec.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCharacterSpec.Location = new System.Drawing.Point(6, 16);
+            this.LblCharacterSpec.Name = "LblCharacterSpec";
+            this.LblCharacterSpec.Size = new System.Drawing.Size(200, 148);
+            this.LblCharacterSpec.TabIndex = 0;
+            this.LblCharacterSpec.Text = "Attack Dammage: 999";
             // 
-            // lblRobomoonSpec
+            // GbxActionText
             // 
-            this.lblRobomoonSpec.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblRobomoonSpec.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRobomoonSpec.Location = new System.Drawing.Point(210, 16);
-            this.lblRobomoonSpec.Name = "lblRobomoonSpec";
-            this.lblRobomoonSpec.Size = new System.Drawing.Size(200, 148);
-            this.lblRobomoonSpec.TabIndex = 1;
-            this.lblRobomoonSpec.Text = "label2";
+            this.GbxActionText.BackColor = System.Drawing.Color.Transparent;
+            this.GbxActionText.Controls.Add(this.LblText);
+            this.GbxActionText.Location = new System.Drawing.Point(12, 691);
+            this.GbxActionText.Name = "GbxActionText";
+            this.GbxActionText.Size = new System.Drawing.Size(1280, 338);
+            this.GbxActionText.TabIndex = 0;
+            this.GbxActionText.TabStop = false;
             // 
-            // lblCharacterSpec
+            // LblText
             // 
-            this.lblCharacterSpec.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblCharacterSpec.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCharacterSpec.Location = new System.Drawing.Point(6, 16);
-            this.lblCharacterSpec.Name = "lblCharacterSpec";
-            this.lblCharacterSpec.Size = new System.Drawing.Size(200, 148);
-            this.lblCharacterSpec.TabIndex = 0;
-            this.lblCharacterSpec.Text = "Attack Dammage: 999";
+            this.LblText.Location = new System.Drawing.Point(85, 16);
+            this.LblText.Name = "LblText";
+            this.LblText.Size = new System.Drawing.Size(1189, 311);
+            this.LblText.TabIndex = 1;
+            this.LblText.Text = "label1";
+            this.LblText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // gbxActionText
+            // PbrRobomoonHP
             // 
-            this.gbxActionText.BackColor = System.Drawing.Color.Transparent;
-            this.gbxActionText.Controls.Add(this.lblText);
-            this.gbxActionText.Location = new System.Drawing.Point(12, 691);
-            this.gbxActionText.Name = "gbxActionText";
-            this.gbxActionText.Size = new System.Drawing.Size(1280, 338);
-            this.gbxActionText.TabIndex = 0;
-            this.gbxActionText.TabStop = false;
+            this.PbrRobomoonHP.Location = new System.Drawing.Point(6, 39);
+            this.PbrRobomoonHP.Name = "PbrRobomoonHP";
+            this.PbrRobomoonHP.Size = new System.Drawing.Size(500, 20);
+            this.PbrRobomoonHP.Step = 1;
+            this.PbrRobomoonHP.TabIndex = 9;
             // 
-            // lblText
+            // GbxRobomoonSpec
             // 
-            this.lblText.Location = new System.Drawing.Point(85, 16);
-            this.lblText.Name = "lblText";
-            this.lblText.Size = new System.Drawing.Size(1189, 311);
-            this.lblText.TabIndex = 1;
-            this.lblText.Text = "label1";
-            this.lblText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.GbxRobomoonSpec.BackColor = System.Drawing.Color.Transparent;
+            this.GbxRobomoonSpec.Controls.Add(this.LblRobomoonNamn);
+            this.GbxRobomoonSpec.Controls.Add(this.PbrRobomoonHP);
+            this.GbxRobomoonSpec.Location = new System.Drawing.Point(315, 64);
+            this.GbxRobomoonSpec.Name = "GbxRobomoonSpec";
+            this.GbxRobomoonSpec.Size = new System.Drawing.Size(515, 69);
+            this.GbxRobomoonSpec.TabIndex = 10;
+            this.GbxRobomoonSpec.TabStop = false;
             // 
-            // pbrRobomoonHP
+            // LblRobomoonNamn
             // 
-            this.pbrRobomoonHP.Location = new System.Drawing.Point(6, 39);
-            this.pbrRobomoonHP.Name = "pbrRobomoonHP";
-            this.pbrRobomoonHP.Size = new System.Drawing.Size(500, 20);
-            this.pbrRobomoonHP.Step = 1;
-            this.pbrRobomoonHP.TabIndex = 9;
+            this.LblRobomoonNamn.AutoSize = true;
+            this.LblRobomoonNamn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblRobomoonNamn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.LblRobomoonNamn.Location = new System.Drawing.Point(6, 16);
+            this.LblRobomoonNamn.Name = "LblRobomoonNamn";
+            this.LblRobomoonNamn.Size = new System.Drawing.Size(134, 20);
+            this.LblRobomoonNamn.TabIndex = 11;
+            this.LblRobomoonNamn.Text = "Robomoon Name";
             // 
-            // gbxRobomoonSpec
+            // GbxCharacterSpec
             // 
-            this.gbxRobomoonSpec.BackColor = System.Drawing.Color.Transparent;
-            this.gbxRobomoonSpec.Controls.Add(this.lblRobomoonNamn);
-            this.gbxRobomoonSpec.Controls.Add(this.pbrRobomoonHP);
-            this.gbxRobomoonSpec.Location = new System.Drawing.Point(315, 64);
-            this.gbxRobomoonSpec.Name = "gbxRobomoonSpec";
-            this.gbxRobomoonSpec.Size = new System.Drawing.Size(515, 69);
-            this.gbxRobomoonSpec.TabIndex = 10;
-            this.gbxRobomoonSpec.TabStop = false;
+            this.GbxCharacterSpec.BackColor = System.Drawing.Color.Transparent;
+            this.GbxCharacterSpec.Controls.Add(this.LblCharacterHP);
+            this.GbxCharacterSpec.Controls.Add(this.LblCharacterName);
+            this.GbxCharacterSpec.Controls.Add(this.PbrCharacterHP);
+            this.GbxCharacterSpec.Location = new System.Drawing.Point(1174, 479);
+            this.GbxCharacterSpec.Name = "GbxCharacterSpec";
+            this.GbxCharacterSpec.Size = new System.Drawing.Size(515, 88);
+            this.GbxCharacterSpec.TabIndex = 11;
+            this.GbxCharacterSpec.TabStop = false;
             // 
-            // lblRobomoonNamn
+            // LblCharacterHP
             // 
-            this.lblRobomoonNamn.AutoSize = true;
-            this.lblRobomoonNamn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRobomoonNamn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblRobomoonNamn.Location = new System.Drawing.Point(6, 16);
-            this.lblRobomoonNamn.Name = "lblRobomoonNamn";
-            this.lblRobomoonNamn.Size = new System.Drawing.Size(134, 20);
-            this.lblRobomoonNamn.TabIndex = 11;
-            this.lblRobomoonNamn.Text = "Robomoon Name";
+            this.LblCharacterHP.AutoSize = true;
+            this.LblCharacterHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCharacterHP.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.LblCharacterHP.Location = new System.Drawing.Point(439, 62);
+            this.LblCharacterHP.Name = "LblCharacterHP";
+            this.LblCharacterHP.Size = new System.Drawing.Size(67, 20);
+            this.LblCharacterHP.TabIndex = 12;
+            this.LblCharacterHP.Text = "999/999";
             // 
-            // gbxCharacterSpec
+            // LblCharacterName
             // 
-            this.gbxCharacterSpec.BackColor = System.Drawing.Color.Transparent;
-            this.gbxCharacterSpec.Controls.Add(this.lblCharacterHP);
-            this.gbxCharacterSpec.Controls.Add(this.lblCharacterName);
-            this.gbxCharacterSpec.Controls.Add(this.pbrCharacterHP);
-            this.gbxCharacterSpec.Location = new System.Drawing.Point(1174, 479);
-            this.gbxCharacterSpec.Name = "gbxCharacterSpec";
-            this.gbxCharacterSpec.Size = new System.Drawing.Size(515, 88);
-            this.gbxCharacterSpec.TabIndex = 11;
-            this.gbxCharacterSpec.TabStop = false;
+            this.LblCharacterName.AutoSize = true;
+            this.LblCharacterName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCharacterName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.LblCharacterName.Location = new System.Drawing.Point(6, 16);
+            this.LblCharacterName.Name = "LblCharacterName";
+            this.LblCharacterName.Size = new System.Drawing.Size(125, 20);
+            this.LblCharacterName.TabIndex = 11;
+            this.LblCharacterName.Text = "Character Name";
             // 
-            // lblCharacterHP
+            // PbrCharacterHP
             // 
-            this.lblCharacterHP.AutoSize = true;
-            this.lblCharacterHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCharacterHP.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblCharacterHP.Location = new System.Drawing.Point(439, 62);
-            this.lblCharacterHP.Name = "lblCharacterHP";
-            this.lblCharacterHP.Size = new System.Drawing.Size(67, 20);
-            this.lblCharacterHP.TabIndex = 12;
-            this.lblCharacterHP.Text = "999/999";
+            this.PbrCharacterHP.Location = new System.Drawing.Point(6, 39);
+            this.PbrCharacterHP.Name = "PbrCharacterHP";
+            this.PbrCharacterHP.Size = new System.Drawing.Size(500, 20);
+            this.PbrCharacterHP.TabIndex = 9;
             // 
-            // lblCharacterName
+            // PbxRobomoon
             // 
-            this.lblCharacterName.AutoSize = true;
-            this.lblCharacterName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCharacterName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblCharacterName.Location = new System.Drawing.Point(6, 16);
-            this.lblCharacterName.Name = "lblCharacterName";
-            this.lblCharacterName.Size = new System.Drawing.Size(125, 20);
-            this.lblCharacterName.TabIndex = 11;
-            this.lblCharacterName.Text = "Character Name";
+            this.PbxRobomoon.Location = new System.Drawing.Point(1305, 0);
+            this.PbxRobomoon.Name = "PbxRobomoon";
+            this.PbxRobomoon.Size = new System.Drawing.Size(210, 280);
+            this.PbxRobomoon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PbxRobomoon.TabIndex = 8;
+            this.PbxRobomoon.TabStop = false;
             // 
-            // pbrCharacterHP
+            // PbxCharacter
             // 
-            this.pbrCharacterHP.Location = new System.Drawing.Point(6, 39);
-            this.pbrCharacterHP.Name = "pbrCharacterHP";
-            this.pbrCharacterHP.Size = new System.Drawing.Size(500, 20);
-            this.pbrCharacterHP.TabIndex = 9;
-            // 
-            // pbxRobomoon
-            // 
-            this.pbxRobomoon.Location = new System.Drawing.Point(1305, 0);
-            this.pbxRobomoon.Name = "pbxRobomoon";
-            this.pbxRobomoon.Size = new System.Drawing.Size(210, 280);
-            this.pbxRobomoon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxRobomoon.TabIndex = 8;
-            this.pbxRobomoon.TabStop = false;
-            // 
-            // pbxCharacter
-            // 
-            this.pbxCharacter.Location = new System.Drawing.Point(405, 266);
-            this.pbxCharacter.Name = "pbxCharacter";
-            this.pbxCharacter.Size = new System.Drawing.Size(210, 280);
-            this.pbxCharacter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxCharacter.TabIndex = 7;
-            this.pbxCharacter.TabStop = false;
+            this.PbxCharacter.Location = new System.Drawing.Point(405, 266);
+            this.PbxCharacter.Name = "PbxCharacter";
+            this.PbxCharacter.Size = new System.Drawing.Size(210, 280);
+            this.PbxCharacter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PbxCharacter.TabIndex = 7;
+            this.PbxCharacter.TabStop = false;
             // 
             // FightArena
             // 
@@ -369,62 +345,59 @@
             this.BackgroundImage = global::Robomoon.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
-            this.Controls.Add(this.gbxCharacterSpec);
-            this.Controls.Add(this.gbxRobomoonSpec);
-            this.Controls.Add(this.pbxRobomoon);
-            this.Controls.Add(this.pbxCharacter);
-            this.Controls.Add(this.gbxActions);
-            this.Controls.Add(this.gbxActionText);
+            this.Controls.Add(this.GbxCharacterSpec);
+            this.Controls.Add(this.GbxRobomoonSpec);
+            this.Controls.Add(this.PbxRobomoon);
+            this.Controls.Add(this.PbxCharacter);
+            this.Controls.Add(this.GbxActions);
+            this.Controls.Add(this.GbxActionText);
             this.Name = "FightArena";
             this.Text = "FightArena";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FightArena_FormClosing);
             this.Load += new System.EventHandler(this.FightArena_Load);
-            this.gbxDecideAction.ResumeLayout(false);
-            this.gbxFight.ResumeLayout(false);
-            this.gbxActions.ResumeLayout(false);
-            this.gbxBackpack.ResumeLayout(false);
-            this.gbxSpec.ResumeLayout(false);
-            this.gbxActionText.ResumeLayout(false);
-            this.gbxRobomoonSpec.ResumeLayout(false);
-            this.gbxRobomoonSpec.PerformLayout();
-            this.gbxCharacterSpec.ResumeLayout(false);
-            this.gbxCharacterSpec.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxRobomoon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxCharacter)).EndInit();
+            this.GbxDecideAction.ResumeLayout(false);
+            this.GbxFight.ResumeLayout(false);
+            this.GbxActions.ResumeLayout(false);
+            this.GbxSpec.ResumeLayout(false);
+            this.GbxActionText.ResumeLayout(false);
+            this.GbxRobomoonSpec.ResumeLayout(false);
+            this.GbxRobomoonSpec.PerformLayout();
+            this.GbxCharacterSpec.ResumeLayout(false);
+            this.GbxCharacterSpec.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxRobomoon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxCharacter)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox gbxDecideAction;
-        private System.Windows.Forms.Button btnCharacter;
-        private System.Windows.Forms.Button btnFight;
-        private System.Windows.Forms.GroupBox gbxFight;
-        private System.Windows.Forms.Button btnAttack5;
-        private System.Windows.Forms.Button btnGoBack;
-        private System.Windows.Forms.Button btnAttack4;
-        private System.Windows.Forms.Button btnAttack3;
-        private System.Windows.Forms.Button btnAttack2;
-        private System.Windows.Forms.Button btnAttack1;
-        private System.Windows.Forms.GroupBox gbxActions;
-        private System.Windows.Forms.GroupBox gbxActionText;
-        private System.Windows.Forms.PictureBox pbxCharacter;
-        private System.Windows.Forms.PictureBox pbxRobomoon;
-        private System.Windows.Forms.ProgressBar pbrRobomoonHP;
-        private System.Windows.Forms.GroupBox gbxRobomoonSpec;
-        private System.Windows.Forms.Label lblRobomoonNamn;
-        private System.Windows.Forms.GroupBox gbxCharacterSpec;
-        private System.Windows.Forms.Label lblCharacterName;
-        private System.Windows.Forms.ProgressBar pbrCharacterHP;
-        private System.Windows.Forms.Label lblCharacterHP;
-        private System.Windows.Forms.GroupBox gbxBackpack;
-        private System.Windows.Forms.Button btnGoBackBackpack;
-        private System.Windows.Forms.GroupBox gbxSpec;
-        private System.Windows.Forms.Label lblRobomoonSpec;
-        private System.Windows.Forms.Label lblCharacterSpec;
-        private System.Windows.Forms.Button btnGoBackSpecs;
-        private System.Windows.Forms.Label lblText;
+        private System.Windows.Forms.GroupBox GbxDecideAction;
+        private System.Windows.Forms.Button BtnCharacter;
+        private System.Windows.Forms.Button BtnFight;
+        private System.Windows.Forms.GroupBox GbxFight;
+        private System.Windows.Forms.Button BtnAttack5;
+        private System.Windows.Forms.Button BtnGoBack;
+        private System.Windows.Forms.Button BtnAttack4;
+        private System.Windows.Forms.Button BtnAttack3;
+        private System.Windows.Forms.Button BtnAttack2;
+        private System.Windows.Forms.Button BtnAttack1;
+        private System.Windows.Forms.GroupBox GbxActions;
+        private System.Windows.Forms.GroupBox GbxActionText;
+        private System.Windows.Forms.PictureBox PbxCharacter;
+        private System.Windows.Forms.PictureBox PbxRobomoon;
+        private System.Windows.Forms.ProgressBar PbrRobomoonHP;
+        private System.Windows.Forms.GroupBox GbxRobomoonSpec;
+        private System.Windows.Forms.Label LblRobomoonNamn;
+        private System.Windows.Forms.GroupBox GbxCharacterSpec;
+        private System.Windows.Forms.Label LblCharacterName;
+        private System.Windows.Forms.ProgressBar PbrCharacterHP;
+        private System.Windows.Forms.Label LblCharacterHP;
+        private System.Windows.Forms.GroupBox GbxSpec;
+        private System.Windows.Forms.Label LblRobomoonSpec;
+        private System.Windows.Forms.Label LblCharacterSpec;
+        private System.Windows.Forms.Button BtnGoBackSpecs;
+        private System.Windows.Forms.Label LblText;
     }
 }

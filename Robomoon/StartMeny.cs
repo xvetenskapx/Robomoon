@@ -10,13 +10,29 @@ using System.Windows.Forms;
 
 namespace Robomoon
 {
+    
     public partial class StartMeny : Form
     {
-        RobomoonChoose robomoonChoose = new RobomoonChoose();
+        RobomoonChoose RobomoonChoose = new RobomoonChoose();
+        
+        // Random to Everyone
+        public static Random RandomStat = new Random();
+
+        // Sound effects
+        #region
+        public static System.Media.SoundPlayer Strong_punch = new System.Media.SoundPlayer(@"Sound Effects\\Strong_Punch-Mike_Koenig-574430706.wav");
+        public static System.Media.SoundPlayer Slap = new System.Media.SoundPlayer(@"Sound Effects\\Slap-SoundMaster13-49669815.wav");
+        public static System.Media.SoundPlayer Kick = new System.Media.SoundPlayer(@"Sound Effects\\Kick-SoundBible.com-1331196005.wav");
+        public static System.Media.SoundPlayer Banana_slap = new System.Media.SoundPlayer(@"Sound Effects\\Banana_Slap-AngryFlash-2001109808.wav");
+        public static System.Media.SoundPlayer DUN = new System.Media.SoundPlayer(@"Sound Effects\\DUN DUN DUUUUN Sound Effect (1).wav");
+        public static System.Media.SoundPlayer dun = new System.Media.SoundPlayer(@"Sound Effects\\dun_dun_dun-Delsym-719755295.wav");
+        public static System.Media.SoundPlayer Yahoo = new System.Media.SoundPlayer(@"Sound Effects\\yahoo.wav");
+        #endregion
 
         public StartMeny()
         {
             InitializeComponent();
+            
         }
 
         private void StartMeny_Load(object sender, EventArgs e)
@@ -27,9 +43,10 @@ namespace Robomoon
             this.BackgroundImage = Image.FromFile("Picture\\Other\\MenyBakcground.bmp");
         }
 
-        private void lblstartgame_Click(object sender, EventArgs e)
+        private void Lblstartgame_Click(object sender, EventArgs e)
         {
-            robomoonChoose.Show();
+            Yahoo.Play();
+            RobomoonChoose.Show();
             this.Hide();
         }
     }

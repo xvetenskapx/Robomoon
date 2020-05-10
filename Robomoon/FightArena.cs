@@ -14,7 +14,7 @@ namespace Robomoon
     {
         Characters Player = Characters.PlayableCharacters.ElementAt(Characters.PlayerIndex);
         Characters Enemey = Characters.RobomoonCharacters.ElementAt(Characters.RobomoonIndex);
-
+        
         public FightArena()
         {
             InitializeComponent();
@@ -30,15 +30,15 @@ namespace Robomoon
             SolidBrush LightBrush = new SolidBrush(Color.FromArgb(170, 175, 144));
             SolidBrush DarkBrush = new SolidBrush(Color.FromArgb(200, 200, 176));
             //
-            //Ovalerna
+            //Ovals
             //
-            // Yttre Fiende Ovalen
+            // Outer Enemy ovals
             g.FillEllipse(DarkBrush, 1000, 130, 820, 206);
-            // Inre Fiende Ovalen
+            // Inner Enemy ovals
             g.FillEllipse(LightBrush, 1010, 140, 800, 186);
-            // Yttre Spelare Ovalen 
+            // Outer Player ovals 
             g.FillEllipse(DarkBrush, 100, 385, 820, 206);
-            // Inre Spelare Ovalen
+            // Inner Enemy ovals
             g.FillEllipse(LightBrush, 110, 395, 800, 186);
         }
 
@@ -53,80 +53,80 @@ namespace Robomoon
         private void FightArena_Load(object sender, EventArgs e)
         {
             //Load in character's and enemy's face
-            pbxCharacter.Image = Player.Apearence;
-            pbxRobomoon.Image = Enemey.Apearence;
+            PbxCharacter.Image = Player.Apearence;
+            PbxRobomoon.Image = Enemey.Apearence;
 
             //
             // Character
             //
-            lblCharacterName.Text = Player.Name;
-            pbrCharacterHP.Value = Healthbar(Player);
-            lblCharacterHP.Text = Player.Health.ToString() + "/" + Player.StartHealth;
+            LblCharacterName.Text = Player.Name;
+            PbrCharacterHP.Value = Healthbar(Player);
+            LblCharacterHP.Text = Player.Health.ToString() + "/" + Player.StartHealth;
             //
             // Robomoon
             //
-            lblRobomoonNamn.Text = Enemey.Name;
-            pbrRobomoonHP.Value = Healthbar(Enemey);
+            LblRobomoonNamn.Text = Enemey.Name;
+            PbrRobomoonHP.Value = Healthbar(Enemey);
             //
             // Text
             //
-            lblText.Font = new Font("Microsoft Sans Serif", 50);
-            lblText.Text = "What Are You Going To Do?";
+            LblText.Font = new Font("Microsoft Sans Serif", 50);
+            LblText.Text = "What Are You Going To Do?";
             //
             // FightButtons Name
             //
-            btnAttack1.Text = "Standard";
-            btnAttack2.Text = "Doom Slap";
-            btnAttack3.Text = "Rocket Man";
-            btnAttack4.Text = "Merciful Beating";
-            btnAttack5.Text = "ARK";
+            BtnAttack1.Text = "Standard";
+            BtnAttack2.Text = "Doom Slap";
+            BtnAttack3.Text = "Rocket Man";
+            BtnAttack4.Text = "Merciful Beating";
+            BtnAttack5.Text = "ARK";
         }
 
 
         //
         // Group Box Decide Action
         //
-        private void btnFight_Click(object sender, EventArgs e)
+        private void BtnFight_Click(object sender, EventArgs e)
         {
-            gbxDecideAction.Hide();
+            GbxDecideAction.Hide();
 
             //Show new groupbox and move it to its place
-            gbxFight.Visible = true;
-            gbxFight.Location = new Point(95, 60);
+            GbxFight.Visible = true;
+            GbxFight.Location = new Point(95, 60);
 
-            lblText.Font = new Font("Microsoft Sans Serif", 50);
-            lblText.Text = "What Combat Technique Were You Thinking Of Using?";
+            LblText.Font = new Font("Microsoft Sans Serif", 50);
+            LblText.Text = "What Combat Technique Were You Thinking Of Using?";
         }
-        private void btnGoBack_Click(object sender, EventArgs e)
+        private void BtnGoBack_Click(object sender, EventArgs e)
         {
-            gbxFight.Visible = false;
-            gbxDecideAction.Visible = true;
+            GbxFight.Visible = false;
+            GbxDecideAction.Visible = true;
 
-            lblText.Font = new Font("Microsoft Sans Serif", 50);
-            lblText.Text = "What Are You Going To Do?";
+            LblText.Font = new Font("Microsoft Sans Serif", 50);
+            LblText.Text = "What Are You Going To Do?";
         }
-        private void btnCharacter_Click(object sender, EventArgs e)
+        private void BtnCharacter_Click(object sender, EventArgs e)
         {
-            gbxDecideAction.Hide();
+            GbxDecideAction.Hide();
 
             //Show new groupbox and move it to its place
-            gbxSpec.Visible = true;
-            gbxSpec.Location = new Point(95, 60);
+            GbxSpec.Visible = true;
+            GbxSpec.Location = new Point(95, 60);
 
             //Show character's and enemey's name, health, etc
-            lblCharacterSpec.Text = Player.CharacterSpec();
-            lblRobomoonSpec.Text = Enemey.CharacterSpec();
+            LblCharacterSpec.Text = Player.CharacterSpec();
+            LblRobomoonSpec.Text = Enemey.CharacterSpec();
 
-            lblText.Font = new Font("Microsoft Sans Serif", 50);
-            lblText.Text = "Here Is Your And His Specs";
+            LblText.Font = new Font("Microsoft Sans Serif", 50);
+            LblText.Text = "Here Is Your And His Specs";
         }
-        private void btnGoBackSpecs_Click(object sender, EventArgs e)
+        private void BtnGoBackSpecs_Click(object sender, EventArgs e)
         {
-            gbxSpec.Visible = false;
-            gbxDecideAction.Visible = true;
+            GbxSpec.Visible = false;
+            GbxDecideAction.Visible = true;
 
-            lblText.Font = new Font("Microsoft Sans Serif", 50);
-            lblText.Text = "What Are You Going To Do?";
+            LblText.Font = new Font("Microsoft Sans Serif", 50);
+            LblText.Text = "What Are You Going To Do?";
         }
         //
         // End
@@ -136,113 +136,155 @@ namespace Robomoon
         //
         // Attack Buttons
         //
-        private void btnAttack1_Click(object sender, EventArgs e)       //Standard
+        //Standard
+        private void BtnAttack1_Click(object sender, EventArgs e)       
         {
             //
             // Player
             //
-            Enemey.Health -= StandardFightThe(Enemey);      //Attack
-            HealthCheck(Enemey);                            //Health Check
-            pbrRobomoonHP.Value = Healthbar(Enemey);        //Health Update
+            //Attack
+            StartMeny.Strong_punch.Play();
+            //Freezes the code for 0.8 seconds so the enemy effect do not collides.
+            System.Threading.Thread.Sleep(800);
+            Enemey.Health -= StandardFightThe(Enemey);      
+            //Health Check
+            HealthCheck(Enemey);                            
+            //Health Update
+            PbrRobomoonHP.Value = Healthbar(Enemey);        
             //
             // Robomoon
             //
             if (Enemey.Health != 0)
             {
-                EnemyFightChocie();                             //Enemy Chose Attack and do an health check and update
+                //Enemy Chose Attack and do an health check and update
+                EnemyFightChocie();                             
             }
             //
             // Go Back
             //
-            DoneAttack();                                   //Go back to gbxDecideAction
+            //Go back to GbxDecideAction
+            DoneAttack();                                   
 
         }
 
-
-        private void btnAttack2_Click(object sender, EventArgs e)       //Slap of Doom
+        //Slap of Doom
+        private void BtnAttack2_Click(object sender, EventArgs e)       
         {
             //
             // Player
             //
-            Enemey.Health -= DoomFightThe(Enemey);      // Attack
-            HealthCheck(Enemey);                        //Health Check
-            pbrRobomoonHP.Value = Healthbar(Enemey);    //Health Update
+            // Attack
+            StartMeny.Slap.Play();
+            Enemey.Health -= DoomFightThe(Enemey);
+            //Health Check
+            HealthCheck(Enemey);
+            //Health Update
+            PbrRobomoonHP.Value = Healthbar(Enemey);    
             //
             // Robomoon
             //
             if (Enemey.Health != 0)
             {
-                EnemyFightChocie();                             //Enemy Chose Attack and do an health check and update
+                //Enemy Chose Attack and do an health check and update
+                EnemyFightChocie();                             
             }
             //
             // Go Back
             //
-            DoneAttack();                               //Go back to gbxDecideAction
+            //Go back to GbxDecideAction
+            DoneAttack();                               
         }
 
-
-        private void btnAttack3_Click(object sender, EventArgs e)       //Rocket Man
+        //Rocket Man
+        private void btnAttack3_Click(object sender, EventArgs e)       
         {
             //
             // Player
             //
-            Enemey.Health -= RocketThe(Enemey);         //Attack
-            HealthCheck(Enemey);                        //Health Check
-            pbrRobomoonHP.Value = Healthbar(Enemey);    //Health Update
+            //Attack
+            StartMeny.Kick.Play();
+            Enemey.Health -= RocketThe(Enemey);
+            //Health Check
+            HealthCheck(Enemey);
+            //Health Update
+            PbrRobomoonHP.Value = Healthbar(Enemey);    
             //
             // Robomoon
             //
             if (Enemey.Health != 0)
             {
-                EnemyFightChocie();                             //Enemy Chose Attack and do an health check and update
+                //Enemy Chose Attack and do an health check and update
+                EnemyFightChocie();                             
             }
             //
             // Go Back
             //
-            DoneAttack();                               //Go back to gbxDecideAction
+            //Go back to GbxDecideAction
+            DoneAttack();                               
         }
 
-
-        private void btnAttack4_Click(object sender, EventArgs e)       //Merciful Beating
+        //Merciful Beating
+        private void BtnAttack4_Click(object sender, EventArgs e)       
         {
             //
             // Player Heal
             //
-            Player.Health += MercifulToo(Player);           // Healing
-            pbrCharacterHP.Value = Healthbar(Player);       //Health Update
+            // Healing
+            StartMeny.Banana_slap.Play();
+            Player.Health += MercifulToo(Player);
+            //Health Update
+            PbrCharacterHP.Value = Healthbar(Player);       
             //
             // Robomoon Fight
             //
             if (Enemey.Health != 0)
             {
-                EnemyFightChocie();                             //Enemy Chose Attack and do an health check and update
+                //Enemy Chose Attack and do an health check and update
+                EnemyFightChocie();                             
             }
             //
             // Go Back
             //
-            DoneAttack();                                   //Go back to gbxDecideAction
+            //Go back to GbxDecideAction
+            DoneAttack();                                   
         }
 
-
-        private void btnAttack5_Click(object sender, EventArgs e)       //ARK
+        //ARK
+        private void BtnAttack5_Click(object sender, EventArgs e)       
         {
             //
             // Player
             //
-            Enemey.Health -= ARKFightThe(Enemey);           // Attack
-            HealthCheck(Enemey);                            //Health Check
-            pbrRobomoonHP.Value = Healthbar(Enemey);        //Health Update
+            // Attack
+            //if it is a successfull ark then there are two sound effects
+            if (ARKFightThe(Enemey) == 30)
+            {
+                StartMeny.Slap.Play();
+                StartMeny.Kick.Play();
+                Enemey.Health -= 30;
+            }
+            else
+            {
+                StartMeny.Banana_slap.Play();
+                Enemey.Health -= 0;
+            }
+            //Health Check
+            HealthCheck(Enemey);
+            //Health Update
+            PbrRobomoonHP.Value = Healthbar(Enemey);        
             //
             // Robomoon
             //
             if (Enemey.Health != 0)
             {
-                EnemyFightChocie();                             //Enemy Chose Attack and do an health check and update
+                //Enemy Chose Attack and do an health check and update
+                EnemyFightChocie();                             
             }
             //
             // Go Back
             //
-            DoneAttack();                                   //Go back to gbxDecideAction
+            //Go back to gbxDecideAction
+            DoneAttack();                                   
         }
         //
         // End
@@ -255,18 +297,21 @@ namespace Robomoon
         void EnemyFightChocie()
         #region
         {
-            Random EnemyAttack = new Random();
-            int EnemeyAttackChoice = EnemyAttack.Next(0, 100);          //Randomize a number between 0 and 99. (I know it is not upp to a 100 becuse I want ark to be slighter harder to achive)
+            //Randomize a number between 0 and 99. (I know it is not upp to a 100)
+            int EnemeyAttackChoice = StartMeny.RandomStat.Next(0, 100);          
             int EnemeyAttack = -1;
-            for (int i = 0; i <= 4; i++)                                //loop thats goes four times and after each time the interval increase with 20.
+            //loop thats goes four times and after each time the interval increase with 20.
+            for (int i = 0; i <= 4; i++)                                
             {
-
-                for (int h = (20 * i); h < 20 + 20 * i; h++)            //loops every number betwwen specifik interval to finde the reigh number.
+                //loops every number betwwen specifik interval to finde the reigh number.
+                for (int h = (20 * i); h < 20 + 20 * i; h++)            
                 {
                     if (EnemeyAttackChoice == h)
                     {
-                        EnemeyAttack = i;                               //Robomoons attack decides of between which interval the number is between.
-                        break;                                          //Stop the h-loop
+                        //Robomoons attack decides of between which interval the number is between.
+                        EnemeyAttack = i;
+                        //Stop the h-loop
+                        break;                                          
                     }
                 }
                 #endregion
@@ -274,43 +319,69 @@ namespace Robomoon
                 {
                     switch (EnemeyAttack)
                     {
-                        case 0:     //Standard
+                        //Standard
+                        case 0:
                             #region
                             //MessageBox.Show("Standard");
+                            StartMeny.Strong_punch.Play();
                             Player.Health -= StandardFightThe(Player);
-                            HealthCheck(Player);                            //Health Check/Update
+                            //Health Check/Update
+                            HealthCheck(Player);                            
                             break;
                         #endregion
 
-                        case 1:     //Slap of Doom
+                        //Slap of Doom
+                        case 1:
                             #region
                             //MessageBox.Show("Slap of Doom");
+                            StartMeny.Slap.Play();
                             Player.Health -= DoomFightThe(Player);
-                            HealthCheck(Player);                            //Health Check/Update
+                            //Health Check/Update
+                            HealthCheck(Player);                            
                             break;
                         #endregion
 
-                        case 2:     //Rocket Man
+                        //Rocket Man
+                        case 2:
                             #region
+                            StartMeny.Kick.Play();
                             //MessageBox.Show("Rocket man");
                             Player.Health -= RocketThe(Player);
-                            HealthCheck(Player);                            //Health Check/Update
+                            //Health Check/Update
+                            HealthCheck(Player);                            
                             break;
                         #endregion
 
-                        case 3:     //Merciful Beating
+                        //Merciful Beating
+                        case 3:
                             #region
                             //MessageBox.Show("Merciful Beating");
+                            StartMeny.Banana_slap.Play();
                             Enemey.Health += MercifulToo(Enemey);
-                            pbrRobomoonHP.Value = Healthbar(Enemey);        //Health Update
+                            //Health Update
+                            PbrRobomoonHP.Value = Healthbar(Enemey);        
                             break;
                         #endregion
 
-                        case 4:     //ARK
+                        //ARK
+                        case 4:
                             #region
                             //MessageBox.Show("ARK");
-                            Player.Health -= ARKFightThe(Player);
-                            HealthCheck(Player);                            //Health Check/Update
+                            //if it is a successfull ark then there are two sound effects
+                            if (ARKFightThe(Player) == 30)
+                            {
+                                StartMeny.Slap.Play();
+                                StartMeny.Kick.Play();
+                                Player.Health -= 30;
+                            }
+                            else
+                            {
+                                StartMeny.Banana_slap.Play();
+                                Player.Health -= 0;
+                            }
+                            
+                            //Health Check/Update
+                            HealthCheck(Player);                            
                             break;
                         #endregion
 
@@ -319,17 +390,20 @@ namespace Robomoon
                             break;
                             #endregion
                     }
-                    break;          //stopps the i-for loop
+                    //stopps the i-for loop
+                    break;          
                 }
             }
         }
 
-        int StandardFightThe(Characters characters)     //Done
+        int StandardFightThe(Characters characters)
         {
             //The standard fight damage is the diffrece bettwen the attacker's attack and the opposed diffrence
-            if (characters == Enemey)                           //Player attack enemy
+            //Player attack enemy
+            if (characters == Enemey)                           
             {
-                if (Enemey.Defence >= Player.AttackDamage)      //If the defence is higher then the attack then the damage is only 1
+                //If the defence is higher then the attack then the damage is only 1
+                if (Enemey.Defence >= Player.AttackDamage)      
                 {
                     return 1;
                 }
@@ -340,7 +414,8 @@ namespace Robomoon
                 }
             }
 
-            else if (characters == Player)                      //Enemy attack player
+            //Enemy attack player
+            else if (characters == Player)                      
             {
                 if (Player.Defence >= Enemey.AttackDamage)
                 {
@@ -351,30 +426,34 @@ namespace Robomoon
                     return Enemey.AttackDamage - Player.Defence;
                 }
             }
-            else                                                //should not be posibal to archive
+
+            //should not be posibal to archive
+            else
             {
                 MessageBox.Show("Something went wrong with the Characters");
                 return -1;
             }
         }
 
-        int DoomFightThe(Characters characters)         //Done
+        int DoomFightThe(Characters characters)
         {
             //The standard fight damage is the diffrece bettwen the attacker's attack and the opposed diffrence.
             //Slap force can be a bounus damage. 50% of the time it is not an bouns. the bounus can be increse and decrese the attack damage.
             //Max bonus 150, min decrese 50
 
-            Random Slap = new Random();
-            double SlapForce = (double)Slap.Next(2);
-            if (SlapForce != 0)                                                 //Decide if there should be any increase
+            double SlapForce = (double)StartMeny.RandomStat.Next(2);
+            //Decide if there should be any change
+            if (SlapForce != 0)                                                 
             {
-                SlapForce = (double)Slap.Next(50, 151) / 100;                   //Deicde the power of the increase
+                //Deicde the power of the change
+                SlapForce = (double)StartMeny.RandomStat.Next(50, 151) / 100;                   
             }
 
             int SlapDamage;
             if (characters == Enemey)
             {
-                SlapDamage = (int)(Player.AttackDamage * SlapForce + 0.5);      //Slap damage is the orginal attack damage multiplide by the increse.
+                //Slap damage is the orginal attack damage multiplide by the change.
+                SlapDamage = (int)(Player.AttackDamage * SlapForce + 0.5);      
                 if (Enemey.Defence >= Player.AttackDamage)
                 {
                     return 1 + SlapDamage;
@@ -404,13 +483,13 @@ namespace Robomoon
             }
         }
 
-        int RocketThe(Characters characters)            //Done
+        int RocketThe(Characters characters)
         {
-            Random Rocket = new Random();
-            double RocketPower = (double)Rocket.Next(2);
+            //the same as Slap of Doom
+            double RocketPower = (double)StartMeny.RandomStat.Next(2);
             if (RocketPower != 0)
             {
-                RocketPower = (double)Rocket.Next(50, 151) / 100;
+                RocketPower = (double)StartMeny.RandomStat.Next(50, 151) / 100;
             }
 
             int SlapDamage;
@@ -446,27 +525,31 @@ namespace Robomoon
             }
         }
 
-        int MercifulToo(Characters characters)          //Done
+        int MercifulToo(Characters characters)
         {
-            Random mercy = new Random();
-            double Life = mercy.Next(0, 11);
-            Life /= 10;                                 //Health restore can only be tenths
+            double Life = StartMeny.RandomStat.Next(0, 11);
+            //Health restore can only be in tenths           
+            Life /= 10;                                
 
             int LifeSave;
             if (characters == Enemey)
             {
-                if (Enemey.StartHealth == Enemey.Health)                    //If Robomoon alreday have full health no additional health will be added
+                //If Robomoon alreday have full health no additional health will be added
+                if (Enemey.StartHealth == Enemey.Health)                    
                 {
                     return 0;
                 }
 
                 LifeSave = (int)(Enemey.StartHealth * Life + 0.5);
 
-                if (Enemey.Health + LifeSave > Enemey.StartHealth)          //If Robomoon health plus the restore health is the same as orginal health only the diffrence will sent back. (Full life afterward)
+                //If Robomoon health plus the restore health is the same as orginal health only the diffrence will sent back. (Full life afterward)
+                if (Enemey.Health + LifeSave > Enemey.StartHealth)          
                 {
                     return (Enemey.StartHealth - Enemey.Health);
                 }
-                else                                                        //Else full restore life will be sent back
+
+                //Else full restore life will be sent back
+                else
                 {
                     return LifeSave;
                 }
@@ -474,18 +557,22 @@ namespace Robomoon
 
             else if (characters == Player)
             {
-                if (Player.StartHealth == Player.Health)                    //If Chatacter alreday have full health no additional health will be added
+                //If Chatacter alreday have full health no additional health will be added
+                if (Player.StartHealth == Player.Health)                    
                 {
                     return 0;
                 }
 
                 LifeSave = (int)(Player.StartHealth * Life + 0.5);
 
-                if (Player.Health + LifeSave > Player.StartHealth)          //If Character health plus the restore health is the same as orginal health only the diffrence will sent back. (Full life afterward)
+                //If Character health plus the restore health is the same as orginal health only the diffrence will sent back. (Full life afterward)
+                if (Player.Health + LifeSave > Player.StartHealth)          
                 {
                     return Player.StartHealth - Player.Health;
                 }
-                else                                                        //Else full restore life will be sent back
+
+                //Else full restore life will be sent back
+                else
                 {
                     return LifeSave;
                 }
@@ -498,10 +585,10 @@ namespace Robomoon
             }
         }
 
-        int ARKFightThe(Characters characters)          //Done
+        int ARKFightThe(Characters characters) 
         {
-            Random ARK = new Random();
-            int ARKChance = ARK.Next(11);               //it is only a tenths chance to get an succesiful ARK. Bucuse ARK is very powerfull
+            //it is only a tenths chance to get an succesiful ARK. Becuase ARK is very powerfull
+            int ARKChance = StartMeny.RandomStat.Next(11);               
             //MessageBox.Show("ARK" + ARKChance.ToString());
 
             if (characters == Player)
@@ -520,7 +607,7 @@ namespace Robomoon
             {
                 if (ARKChance == 1)
                 {
-                    return 15;
+                    return 30;
                 }
 
                 else
@@ -546,36 +633,50 @@ namespace Robomoon
             //
             if (characters == Enemey)
             {
-                if (Enemey.Health <= 0)                                     //If health is or under 0 the game is over.
+                //If health is or under 0 the game is over.
+                if (Enemey.Health <= 0)                                     
                 {
                     Enemey.Health = 0;
+                    PbrRobomoonHP.Value = 0;
                     Enemey.Apearence = Enemey.DeathApearence;
-                    pbxRobomoon.Image = Enemey.Apearence;
-                    MessageBox.Show(Enemey.Name + " has been killed", "Robomoon", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);        //Tell how have been killed
+                    PbxRobomoon.Image = Enemey.Apearence;
 
-                    Characters.CreatorNotRun = false;                       //Our Characters has already been created
+                    //Tell how have been killed
+                    StartMeny.DUN.Play();
+                    MessageBox.Show(Enemey.Name + " has been killed", "Robomoon", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);        
+
+                    //Our Characters has already been created
+                    Characters.CreatorNotRun = false;                       
                     RobomoonChoose choose = new RobomoonChoose();
                     choose.Show();
                     this.Hide();
                 }
-                pbrRobomoonHP.Value = Healthbar(Enemey);                    //if the Robomoon is not dead a update of the healthbar will run.
+                //if the Robomoon is not dead a update of the healthbar will run.
+                PbrRobomoonHP.Value = Healthbar(Enemey);                    
             }
 
-            else if (characters == Player)                                  //If health is or under 0 the game is over.
+            //If health is or under 0 the game is over.
+            else if (characters == Player)                                  
             {
                 if (Player.Health <= 0)
                 {
                     Player.Health = 0;
+                    PbrCharacterHP.Value = 0;
                     Player.Apearence = Player.DeathApearence;
-                    pbxCharacter.Image = Player.Apearence;
-                    MessageBox.Show(Player.Name + " has been killed", "Plyer Killed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);        //Tell how have been killed
+                    PbxCharacter.Image = Player.Apearence;
 
-                    Characters.CreatorNotRun = false;                       //Our Characters has already been created
+                    //Tell how have been killed
+                    StartMeny.dun.Play();
+                    MessageBox.Show(Player.Name + " has been killed", "Plyer Killed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);        
+
+                    //Our Characters has already been created
+                    Characters.CreatorNotRun = false;                       
                     RobomoonChoose choose = new RobomoonChoose();
                     choose.Show();
                     this.Hide();
                 }
-                pbrCharacterHP.Value = Healthbar(Player);                   //if the Character is not dead a update of the healthbar will run.
+                //if the Character is not dead a update of the healthbar will run.
+                PbrCharacterHP.Value = Healthbar(Player);                   
             }
 
         }
@@ -586,6 +687,7 @@ namespace Robomoon
             //copy player starter health to a double and privet for only this code.
             double playerstarterhealth = double.Parse(Player.StartHealth.ToString());
             double enemystarterhealth = double.Parse(Enemey.StartHealth.ToString());
+
             //Varibales that makes the code a little easier to work with
             double CurrentHealth = -1;
             double PercentageHealth = -1;
@@ -596,9 +698,12 @@ namespace Robomoon
             if (characters == Enemey)
             {
                 CurrentHealth = double.Parse(Enemey.Health.ToString());
-                PercentageHealth = ((CurrentHealth / enemystarterhealth) * 100) + 0.5;                          //procentage of the life multiplide by a 100 plus 0.5 to get the right roundnig and to get it to an int.
 
-                if (PercentageHealth <= 0)                                                                      //should not be posibly
+                //procentage of the life multiplide by a 100 plus 0.5 to get the right roundnig and to get it to an int.
+                PercentageHealth = ((CurrentHealth / enemystarterhealth) * 100) + 0.5;
+
+                //should not be posibly
+                if (PercentageHealth <= 0)                                                                      
                 {
                     return 0;
                 }
@@ -612,15 +717,18 @@ namespace Robomoon
             else if (characters == Player)
             {
                 CurrentHealth = double.Parse(Player.Health.ToString());
-                PercentageHealth = ((CurrentHealth / playerstarterhealth) * 100) + 0.5;                         //procentage of the life multiplide by a 100 plus 0.5 to get the right roundnig and to get it to an int.
+                //procentage of the life multiplide by a 100 plus 0.5 to get the right roundnig and to get it to an int.
+                PercentageHealth = ((CurrentHealth / playerstarterhealth) * 100) + 0.5;
 
-                if (PercentageHealth <= 0)                                                                      //should not be posibly
+                //should not be posibly
+                if (PercentageHealth <= 0)                                                                      
                 {
-                    lblCharacterHP.Text = CurrentHealth.ToString() + "/" + playerstarterhealth.ToString();
+                    LblCharacterHP.Text = CurrentHealth.ToString() + "/" + playerstarterhealth.ToString();
                     return 0;
                 }
 
-                lblCharacterHP.Text = CurrentHealth.ToString() + "/" + playerstarterhealth.ToString();          //Update the health under the the bar
+                //Update the health under the the bar
+                LblCharacterHP.Text = CurrentHealth.ToString() + "/" + playerstarterhealth.ToString();          
                 return (int)PercentageHealth;
             }
 
@@ -639,11 +747,11 @@ namespace Robomoon
         void DoneAttack()
         {
             //Method to get back after character has made its move.
-            gbxFight.Visible = false;
-            gbxDecideAction.Visible = true;
+            GbxFight.Visible = false;
+            GbxDecideAction.Visible = true;
 
-            lblText.Font = new Font("Microsoft Sans Serif", 50);
-            lblText.Text = "What Are You Going To Do?";
+            LblText.Font = new Font("Microsoft Sans Serif", 50);
+            LblText.Text = "What Are You Going To Do?";
         }
         //
         // End

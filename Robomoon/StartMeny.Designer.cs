@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblstartgame = new System.Windows.Forms.Label();
+            this.Lblstartgame = new System.Windows.Forms.Label();
             this.lblCreator = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -45,19 +45,19 @@
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Welcome To Robomoon";
             // 
-            // lblstartgame
+            // Lblstartgame
             // 
-            this.lblstartgame.AutoSize = true;
-            this.lblstartgame.BackColor = System.Drawing.Color.Transparent;
-            this.lblstartgame.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblstartgame.Font = new System.Drawing.Font("Kristen ITC", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblstartgame.ForeColor = System.Drawing.Color.Silver;
-            this.lblstartgame.Location = new System.Drawing.Point(810, 506);
-            this.lblstartgame.Name = "lblstartgame";
-            this.lblstartgame.Size = new System.Drawing.Size(299, 68);
-            this.lblstartgame.TabIndex = 2;
-            this.lblstartgame.Text = "Start Game";
-            this.lblstartgame.Click += new System.EventHandler(this.lblstartgame_Click);
+            this.Lblstartgame.AutoSize = true;
+            this.Lblstartgame.BackColor = System.Drawing.Color.Transparent;
+            this.Lblstartgame.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Lblstartgame.Font = new System.Drawing.Font("Kristen ITC", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lblstartgame.ForeColor = System.Drawing.Color.Silver;
+            this.Lblstartgame.Location = new System.Drawing.Point(810, 506);
+            this.Lblstartgame.Name = "Lblstartgame";
+            this.Lblstartgame.Size = new System.Drawing.Size(299, 68);
+            this.Lblstartgame.TabIndex = 2;
+            this.Lblstartgame.Text = "Start Game";
+            this.Lblstartgame.Click += new System.EventHandler(this.Lblstartgame_Click);
             // 
             // lblCreator
             // 
@@ -77,7 +77,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.lblCreator);
-            this.Controls.Add(this.lblstartgame);
+            this.Controls.Add(this.Lblstartgame);
             this.Controls.Add(this.lblTitle);
             this.Name = "StartMeny";
             this.Text = "StartMeny";
@@ -89,7 +89,7 @@
 
         #endregion
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label lblstartgame;
+        private System.Windows.Forms.Label Lblstartgame;
         private System.Windows.Forms.Label lblCreator;
     }
 }
