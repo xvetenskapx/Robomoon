@@ -27,6 +27,7 @@ namespace Robomoon
         public static System.Media.SoundPlayer DUN = new System.Media.SoundPlayer(@"Sound Effects\\DUN DUN DUUUUN Sound Effect (1).wav");
         public static System.Media.SoundPlayer dun = new System.Media.SoundPlayer(@"Sound Effects\\dun_dun_dun-Delsym-719755295.wav");
         public static System.Media.SoundPlayer Yahoo = new System.Media.SoundPlayer(@"Sound Effects\\yahoo.wav");
+        public static System.Media.SoundPlayer UpperCut = new System.Media.SoundPlayer(@"Sound Effects\\Upper Cut-SoundBible.com-1272257235.wav");
         #endregion
 
         public StartMeny()

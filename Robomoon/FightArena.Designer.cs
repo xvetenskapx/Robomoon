@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.GbxDecideAction = new System.Windows.Forms.GroupBox();
             this.BtnFight = new System.Windows.Forms.Button();
             this.BtnCharacter = new System.Windows.Forms.Button();
@@ -54,6 +55,8 @@
             this.PbrCharacterHP = new System.Windows.Forms.ProgressBar();
             this.PbxRobomoon = new System.Windows.Forms.PictureBox();
             this.PbxCharacter = new System.Windows.Forms.PictureBox();
+            this.TmrEnemy = new System.Windows.Forms.Timer(this.components);
+            this.TmrDeath = new System.Windows.Forms.Timer(this.components);
             this.GbxDecideAction.SuspendLayout();
             this.GbxFight.SuspendLayout();
             this.GbxActions.SuspendLayout();
@@ -337,6 +340,16 @@
             this.PbxCharacter.TabIndex = 7;
             this.PbxCharacter.TabStop = false;
             // 
+            // TmrEnemy
+            // 
+            this.TmrEnemy.Interval = 300;
+            this.TmrEnemy.Tick += new System.EventHandler(this.TmrEnemy_Tick);
+            // 
+            // TmrDeath
+            // 
+            this.TmrDeath.Interval = 500;
+            this.TmrDeath.Tick += new System.EventHandler(this.TmrDeath_Tick);
+            // 
             // FightArena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,5 +412,7 @@
         private System.Windows.Forms.Label LblCharacterSpec;
         private System.Windows.Forms.Button BtnGoBackSpecs;
         private System.Windows.Forms.Label LblText;
+        private System.Windows.Forms.Timer TmrEnemy;
+        private System.Windows.Forms.Timer TmrDeath;
     }
 }

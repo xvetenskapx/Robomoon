@@ -144,21 +144,16 @@ namespace Robomoon
             //
             //Attack
             StartMeny.Strong_punch.Play();
-            //Freezes the code for 0.8 seconds so the enemy effect do not collides.
-            System.Threading.Thread.Sleep(800);
-            Enemey.Health -= StandardFightThe(Enemey);      
+            Enemey.Health -= StandardFightThe(Enemey);
             //Health Check
-            HealthCheck(Enemey);                            
+            HealthCheck(Enemey);
             //Health Update
-            PbrRobomoonHP.Value = Healthbar(Enemey);        
+            PbrRobomoonHP.Value = Healthbar(Enemey);
             //
-            // Robomoon
+            // Robomoons Action
             //
-            if (Enemey.Health != 0)
-            {
-                //Enemy Chose Attack and do an health check and update
-                EnemyFightChocie();                             
-            }
+            GbxActions.Enabled = false;
+            TmrEnemy.Start();
             //
             // Go Back
             //
@@ -179,15 +174,12 @@ namespace Robomoon
             //Health Check
             HealthCheck(Enemey);
             //Health Update
-            PbrRobomoonHP.Value = Healthbar(Enemey);    
+            PbrRobomoonHP.Value = Healthbar(Enemey);
             //
-            // Robomoon
+            // Robomoons Action
             //
-            if (Enemey.Health != 0)
-            {
-                //Enemy Chose Attack and do an health check and update
-                EnemyFightChocie();                             
-            }
+            GbxActions.Enabled = false;
+            TmrEnemy.Start();
             //
             // Go Back
             //
@@ -207,15 +199,12 @@ namespace Robomoon
             //Health Check
             HealthCheck(Enemey);
             //Health Update
-            PbrRobomoonHP.Value = Healthbar(Enemey);    
+            PbrRobomoonHP.Value = Healthbar(Enemey);
             //
-            // Robomoon
+            // Robomoons Action
             //
-            if (Enemey.Health != 0)
-            {
-                //Enemy Chose Attack and do an health check and update
-                EnemyFightChocie();                             
-            }
+            GbxActions.Enabled = false;
+            TmrEnemy.Start();
             //
             // Go Back
             //
@@ -233,15 +222,12 @@ namespace Robomoon
             StartMeny.Banana_slap.Play();
             Player.Health += MercifulToo(Player);
             //Health Update
-            PbrCharacterHP.Value = Healthbar(Player);       
+            PbrCharacterHP.Value = Healthbar(Player);
             //
-            // Robomoon Fight
+            // Robomoons Action
             //
-            if (Enemey.Health != 0)
-            {
-                //Enemy Chose Attack and do an health check and update
-                EnemyFightChocie();                             
-            }
+            GbxActions.Enabled = false;
+            TmrEnemy.Start();
             //
             // Go Back
             //
@@ -259,8 +245,7 @@ namespace Robomoon
             //if it is a successfull ark then there are two sound effects
             if (ARKFightThe(Enemey) == 30)
             {
-                StartMeny.Slap.Play();
-                StartMeny.Kick.Play();
+                StartMeny.UpperCut.Play();
                 Enemey.Health -= 30;
             }
             else
@@ -271,15 +256,12 @@ namespace Robomoon
             //Health Check
             HealthCheck(Enemey);
             //Health Update
-            PbrRobomoonHP.Value = Healthbar(Enemey);        
+            PbrRobomoonHP.Value = Healthbar(Enemey);
             //
-            // Robomoon
+            // Robomoons Action
             //
-            if (Enemey.Health != 0)
-            {
-                //Enemy Chose Attack and do an health check and update
-                EnemyFightChocie();                             
-            }
+            GbxActions.Enabled = false;
+            TmrEnemy.Start();
             //
             // Go Back
             //
@@ -370,8 +352,7 @@ namespace Robomoon
                             //if it is a successfull ark then there are two sound effects
                             if (ARKFightThe(Player) == 30)
                             {
-                                StartMeny.Slap.Play();
-                                StartMeny.Kick.Play();
+                                StartMeny.UpperCut.Play();
                                 Player.Health -= 30;
                             }
                             else
@@ -641,15 +622,8 @@ namespace Robomoon
                     Enemey.Apearence = Enemey.DeathApearence;
                     PbxRobomoon.Image = Enemey.Apearence;
 
-                    //Tell how have been killed
-                    StartMeny.DUN.Play();
-                    MessageBox.Show(Enemey.Name + " has been killed", "Robomoon", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);        
-
-                    //Our Characters has already been created
-                    Characters.CreatorNotRun = false;                       
-                    RobomoonChoose choose = new RobomoonChoose();
-                    choose.Show();
-                    this.Hide();
+                    GbxActions.Enabled = false;
+                    TmrDeath.Start();
                 }
                 //if the Robomoon is not dead a update of the healthbar will run.
                 PbrRobomoonHP.Value = Healthbar(Enemey);                    
@@ -665,15 +639,8 @@ namespace Robomoon
                     Player.Apearence = Player.DeathApearence;
                     PbxCharacter.Image = Player.Apearence;
 
-                    //Tell how have been killed
-                    StartMeny.dun.Play();
-                    MessageBox.Show(Player.Name + " has been killed", "Plyer Killed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);        
-
-                    //Our Characters has already been created
-                    Characters.CreatorNotRun = false;                       
-                    RobomoonChoose choose = new RobomoonChoose();
-                    choose.Show();
-                    this.Hide();
+                    GbxActions.Enabled = false;
+                    TmrDeath.Start();
                 }
                 //if the Character is not dead a update of the healthbar will run.
                 PbrCharacterHP.Value = Healthbar(Player);                   
@@ -752,6 +719,60 @@ namespace Robomoon
 
             LblText.Font = new Font("Microsoft Sans Serif", 50);
             LblText.Text = "What Are You Going To Do?";
+        }
+
+        //Stops so the players move has time too execute
+        private void TmrEnemy_Tick(object sender, EventArgs e)
+        {
+            if (Enemey.Health != 0)
+            {
+                TmrEnemy.Stop();
+                //Enemy Chose Attack and do an health check and update
+                EnemyFightChocie();
+            }
+
+            //Enable player to make next move.
+            GbxActions.Enabled = true;
+            TmrEnemy.Stop();
+        }
+
+        private void TmrDeath_Tick(object sender, EventArgs e)
+        {
+            if (Enemey.Health == 0)
+            {
+                //Stop Timer
+                TmrDeath.Stop();
+
+                //Tell how have been killed
+                StartMeny.DUN.Play();
+                MessageBox.Show(Enemey.Name + " has been killed", "Robomoon", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                //Our Characters has already been created
+                Characters.CreatorNotRun = false;
+                RobomoonChoose choose = new RobomoonChoose();
+                choose.Show();
+                this.Hide();
+
+
+            }
+            else if(Player.Health == 0)
+            {
+                //Stop Timer
+                TmrDeath.Stop();
+
+                //Tell how have been killed
+                StartMeny.dun.Play();
+                MessageBox.Show(Player.Name + " has been killed", "Plyer Killed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                //Our Characters has already been created
+                Characters.CreatorNotRun = false;
+                RobomoonChoose choose = new RobomoonChoose();
+                choose.Show();
+                this.Hide();
+
+
+
+            }
         }
         //
         // End

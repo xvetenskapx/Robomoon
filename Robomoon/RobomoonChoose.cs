@@ -85,6 +85,7 @@ namespace Robomoon
             //check if everyone is dead
             if (LiveCharacters == 0)
             {
+                StartMeny.DUN.Play();
                 MessageBox.Show("Every player character is dead, what a waste", "Noooo!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 BtnFight.Enabled = false;
                 BtnRandomCharacter.Enabled = false;
